@@ -65,7 +65,6 @@
 
     section {
       padding: 20px;
-      margin-bottom: 30px;
     }
 
     .bio, .contact, .projects {
@@ -93,99 +92,6 @@
       text-decoration: none;
       color: #007BFF;
     }
-
-    /* Section visibility */
-    .section {
-      display: none;
-    }
-
-    .active {
-      display: block;
-    }
-
-    /* About Section */
-    .about-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: white;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-    }
-
-    .about-image {
-      width: 100%;
-      height: auto;
-      max-height: 400px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 30px;
-    }
-
-    .highlight {
-      color: #FF6347;
-      font-weight: bold;
-    }
-
-    /* Contact Section */
-    .contact-container {
-      text-align: center;
-      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-      padding: 40px;
-      border-radius: 15px;
-      max-width: 700px;
-      margin: 0 auto;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin-bottom: 30px;
-    }
-
-    .contact-links a {
-      text-decoration: none;
-      font-size: 1.3em;
-      font-weight: bold;
-      color: #FFD700;
-      transition: color 0.3s ease;
-    }
-
-    .contact-links a:hover {
-      color: #FF6347;
-      text-decoration: underline;
-    }
-
-    .btn, .back-home-btn {
-      display: inline-block;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      text-decoration: none;
-      border-radius: 5px;
-      margin-top: 20px;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn {
-      background-color: #FF6347;
-      color: white;
-    }
-
-    .btn:hover {
-      background-color: #FF4500;
-    }
-
-    .back-home-btn {
-      background-color: #4CAF50;
-      color: white;
-    }
-
-    .back-home-btn:hover {
-      background-color: #45a049;
-    }
   </style>
 </head>
 <body>
@@ -193,61 +99,53 @@
   <!-- Side Navigation Bar -->
   <nav>
     <ul>
-      <li><a href="#home" onclick="showSection('home')">Home</a></li>
-      <li><a href="#about" onclick="showSection('about')">About</a></li>
-      <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
   <!-- Main Content -->
   <div class="content">
 
-    <!-- Home Section -->
-    <section id="home" class="section active">
-      <header>
-        <h1>Naveen Porwal</h1>
-        <p>PhD Researcher | Machine Learning Enthusiast | Innovator</p>
-      </header>
-    </section>
+    <!-- Header Section -->
+    <header>
+      <h1>Naveen Porwal</h1>
+      <p>PhD Researcher | Machine Learning Enthusiast | Innovator</p>
+    </header>
 
     <!-- About Section -->
-    <section id="about" class="section">
-      <div class="about-container">
-        <img src="https://via.placeholder.com/1200x400" alt="Research Image" class="about-image">
-
-        <h2>Who Am I?</h2>
-        <p>Hi, I'm <span class="highlight">Naveen Porwal</span>, a Ph.D. researcher at IISER Bhopal, specializing in the field of robotics and automation. My main area of focus is multi-agent reinforcement learning, particularly in the context of <span class="highlight">generalized persistent monitoring</span> by a team of cooperative multi-agent systems.</p>
-        
-        <p>My work is applied to a range of real-world problems, such as border patrol and security, where automated systems must work together in real-time to ensure effective monitoring. This research has earned me the honor of being nominated for the prestigious <span class="highlight">Prime Minister Research Fellowship (PMRF)</span>.</p>
-
-        <h2>My Background</h2>
-        <p>I completed both my <strong>Bachelor's</strong> and <strong>Master's</strong> in Physics at IISER Bhopal. During my Master's thesis, I worked on <span class="highlight">theoretical high-energy physics</span> and its intersection with <span class="highlight">machine learning</span>. This foundational work set the stage for my current research interests in applied machine learning and robotics.</p>
-        
-        <p>I am driven by a passion for <span class="highlight">learning and technology</span>. Whether it's coding, experimenting with new robotics techniques, or diving into the latest advancements in machine learning, I thrive in the world of innovation. Outside of my academic life, I enjoy cycling, playing basketball, and learning new languages to expand my horizons.</p>
-        
-        <h2>Personal Philosophy</h2>
-        <p>Every day is an opportunity for improvement. I strive to be a better version of myself today than I was yesterday. Whether it's improving my research, exploring new technologies, or simply growing as a person, I believe in constant self-improvement and learning.</p>
-
-        <p>When I’m not immersed in research, you can find me cycling through scenic paths, playing basketball with friends, or experimenting with new languages and skills to stay sharp.</p>
-      </div>
+    <section class="bio">
+      <h2>About Me</h2>
+      <p>Hello! I am Naveen Porwal, a PhD researcher at [Your Institution]. My research focuses on [Research Area]. I am passionate about applying machine learning techniques to real-world problems, particularly in the fields of [specific applications, e.g., robotics, healthcare, AI]. I have a strong background in [mention your education, previous degrees], and I am always exploring new challenges and opportunities in the world of technology.</p>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section">
-      <div class="contact-container">
-        <h2>Get in Touch</h2>
-        <p>You can reach out to me by email or connect with me on social media through the links provided below.</p>
+    <section class="contact">
+      <h2>Contact Me</h2>
+      <p>If you'd like to get in touch or collaborate on a project, feel free to reach out:</p>
+      <ul>
+        <li>Email: <a href="mailto:naveen@example.com">naveen@example.com</a></li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/naveen-porwal" target="_blank">Naveen Porwal</a></li>
+        <li>GitHub: <a href="https://github.com/naveenporwal" target="_blank">github.com/naveenporwal</a></li>
+      </ul>
+    </section>
 
-        <div class="contact-links">
-          <a href="mailto:your-email@example.com">Email</a>
-          <a href="https://www.instagram.com/your-profile" target="_blank">Instagram</a>
-          <a href="https://www.twitter.com/your-profile" target="_blank">Twitter</a>
-          <a href="https://www.linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
-        </div>
+    <!-- Projects Section -->
+    <section class="projects">
+      <h2>Projects</h2>
+      <p>Here are some of my recent projects:</p>
+      <ul>
+        <li><strong>Project 1:</strong> Description of the project goes here. [Link to GitHub or project page]</li>
+        <li><strong>Project 2:</strong> Description of the project goes here. [Link to GitHub or project page]</li>
+        <li><strong>Project 3:</strong> Description of the project goes here. [Link to GitHub or project page]</li>
+      </ul>
+    </section>
 
-        <a href="mailto:your-email@example.com" class="btn">Send an Email</a>
-        <a href="/" class="back-home-btn">Back to Homepage</a>
-      </div>
+    <!-- Hobbies Section -->
+    <section class="hobbies">
+      <h2>Hobbies & Interests</h2>
+      <p>When I’m not working on my research, I enjoy [List hobbies: cycling, photography, music, etc.]. These activities help me stay balanced and inspired.</p>
     </section>
 
     <!-- Footer Section -->
@@ -261,18 +159,6 @@
     </footer>
 
   </div>
-
-  <!-- JavaScript to handle section switching -->
-  <script>
-    function showSection(section) {
-      // Hide all sections
-      const sections = document.querySelectorAll('.section');
-      sections.forEach((sec) => sec.classList.remove('active'));
-      
-      // Show the selected section
-      document.getElementById(section).classList.add('active');
-    }
-  </script>
 
 </body>
 </html>
