@@ -5,13 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Website</title>
   <style>
-    /* Basic styles for navigation bar */
+    /* General reset for margins and paddings */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styling with vibrant background and AI/ML theme */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-image: url('https://via.placeholder.com/1500'); /* Replace with a relevant AI/ML/Data Science image */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Navigation bar styles */
     nav ul {
       list-style-type: none;
       margin: 0;
       padding: 0;
-      text-align: center;
-      background-color: #333;
+      background-color: rgba(0, 0, 0, 0.7); /* Dark, semi-transparent background */
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
     }
 
     nav ul li {
@@ -23,16 +50,49 @@
       text-decoration: none;
       color: white;
       font-size: 18px;
-      padding: 10px 15px;
+      padding: 15px 20px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
     }
 
     nav ul li a:hover {
-      background-color: #575757;
+      background-color: #4CAF50; /* Green on hover */
       border-radius: 5px;
     }
+
+    /* Main content */
+    h1 {
+      font-size: 3em;
+      margin-top: 100px;
+      color: #FF6347; /* Vibrant tomato color for the heading */
+    }
+
+    p {
+      font-size: 1.5em;
+      color: #D3D3D3; /* Light gray color */
+      margin: 20px 0;
+    }
+
+    /* Call to action button */
+    .cta-btn {
+      background-color: #FFD700; /* Golden button */
+      color: #333;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 30px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #FF6347; /* Hover effect to match heading color */
+    }
+
   </style>
 </head>
 <body>
+
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -42,6 +102,9 @@
   </nav>
 
   <h1>Welcome to My Website!</h1>
-  <p>This is the homepage of my website.</p>
+  <p>This is the homepage of my website, where we explore AI, ML, and Data Science.</p>
+  
+  <a href="about.html" class="cta-btn">Learn More About AI & ML</a>
+
 </body>
 </html>
