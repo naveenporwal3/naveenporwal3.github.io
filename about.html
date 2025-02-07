@@ -4,24 +4,117 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Me</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #007BFF;
+      color: white;
+      text-align: center;
+      padding: 40px 0;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .image {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #007BFF;
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      color: #FF6347;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007BFF;
+      font-size: 1.1em;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #FF6347;
+    }
+  </style>
 </head>
 <body>
-  <h1>About Me</h1>
-  <p>This is the about page for my website. You can write details about yourself or your work here.
 
-  I am a Ph.D. researcher in the domain of robotics and automation at IISER Bhopal. My specialization is in the area of multi-agent reinforcement learning. In particular, I am interested in the problem of generalized persistent monitoring by a team of cooperative multi-agent systems that arises in several applications like border patrol and security.
+  <!-- Header Section -->
+  <header>
+    <h1>About Me</h1>
+    <p>Learn more about my research, interests, and background.</p>
+  </header>
 
-For this thesis topic, I have been nominated and awarded the Prime Minister Research Fellowship (PMRF)
+  <!-- Main Content -->
+  <div class="container">
+    <img src="https://via.placeholder.com/1200x400" alt="Research Image" class="image">
 
-Previously, I had completed my Bachelors and Masters in Physics from IISER Bhopal. I worked in the domain of theoretical high-energy physics and machine learning as part of my Masters thesis.
+    <section class="bio">
+      <h2>Who Am I?</h2>
+      <p>Hi, I'm <span class="highlight">Naveen Porwal</span>, a Ph.D. researcher at IISER Bhopal, specializing in the field of robotics and automation. My main area of focus is multi-agent reinforcement learning, particularly in the context of <span class="highlight">generalized persistent monitoring</span> by a team of cooperative multi-agent systems.</p>
+      
+      <p>My work is applied to a range of real-world problems, such as border patrol and security, where automated systems must work together in real-time to ensure effective monitoring. This research has earned me the honor of being nominated for the prestigious <span class="highlight">Prime Minister Research Fellowship (PMRF)</span>.</p>
 
-I am fuelled by the passion and desire for learning. I am passionate about software, computers, and technology. I love cycling, playing Basketball, and learning new spoken languages in my free time. I strive to be a better version of myself today than what I was yesterday.
-  
-  
-  
-  
-  
-  </p>
-  <a href="index.html">Back to Homepage</a>
+      <h2>My Background</h2>
+      <p>I completed both my <strong>Bachelor's</strong> and <strong>Master's</strong> in Physics at IISER Bhopal. During my Master's thesis, I worked on <span class="highlight">theoretical high-energy physics</span> and its intersection with <span class="highlight">machine learning</span>. This foundational work set the stage for my current research interests in applied machine learning and robotics.</p>
+      
+      <p>I am driven by a passion for <span class="highlight">learning and technology</span>. Whether it's coding, experimenting with new robotics techniques, or diving into the latest advancements in machine learning, I thrive in the world of innovation. Outside of my academic life, I enjoy cycling, playing basketball, and learning new languages to expand my horizons.</p>
+      
+      <h2>Personal Philosophy</h2>
+      <p>Every day is an opportunity for improvement. I strive to be a better version of myself today than I was yesterday. Whether it's improving my research, exploring new technologies, or simply growing as a person, I believe in constant self-improvement and learning.</p>
+
+      <p>When I’m not immersed in research, you can find me cycling through scenic paths, playing basketball with friends, or experimenting with new languages and skills to stay sharp.</p>
+    </section>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 Naveen Porwal | All rights reserved</p>
+    <p><a href="index.html">Back to Homepage</a></p>
+  </footer>
+
 </body>
 </html>
