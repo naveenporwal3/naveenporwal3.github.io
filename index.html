@@ -110,6 +110,61 @@
       text-decoration: none;
       color: #A0C878;
     }
+    /* Responsive layout for smaller screens */
+@media (max-width: 600px) {
+  body {
+    flex-direction: column; /* Stack nav and content vertically */
+  }
+
+  nav {
+    position: relative;      /* Remove fixed positioning */
+    width: 100%;             /* Full width nav */
+    height: auto;            /* Adjust height */
+    padding: 0;
+    background-color: #333;
+  }
+
+  nav ul {
+    display: flex;           /* Horizontal nav links */
+    justify-content: center; /* Center the links */
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li {
+    margin: 0 10px;          /* Horizontal spacing */
+  }
+
+  nav ul li a {
+    font-size: 14px;         /* Slightly bigger for touch */
+    padding: 10px 15px;      /* Bigger tap area */
+  }
+
+  .content {
+    margin-left: 0;          /* Remove left margin */
+    width: 100%;             /* Full width content */
+    padding: 15px 10px;      /* Slightly more padding */
+  }
+
+  header img {
+    width: 100px;            /* Smaller profile picture */
+    height: 100px;
+    margin-top: 10px;
+  }
+
+  header h1 {
+    font-size: 22px;         /* Adjust heading size */
+  }
+
+  header p {
+    font-size: 16px;
+  }
+
+  h2 {
+    font-size: 18px;         /* Slightly bigger section headings */
+  }
+}
+
   </style>
 </head>
 <body>
