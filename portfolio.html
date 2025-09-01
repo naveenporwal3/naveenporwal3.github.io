@@ -38,6 +38,14 @@
     Open Calculator
   </a>
 
+  <br><br>
+
+  <!-- Chatbot Section -->
+  <h3>Ask Me About My Profile</h3>
+  <input id="userInput" type="text" placeholder="Type your question here..." style="width: 100%; padding: 8px; margin-bottom: 10px;"/>
+  <button onclick="getAnswer()" style="width: 100%; padding: 8px; background-color: #2F70AF; color: white; border: none; border-radius: 4px; cursor: pointer;">Ask</button>
+  <p id="botResponse" style="margin-top: 15px; min-height: 40px; font-weight: bold; color: #333;"></p>
+
   <!-- Back Button -->
   <br><br>
   <a href="index.html" style="
@@ -51,3 +59,21 @@
     ⬅️ Back to Home
   </a>
 </section>
+
+<script>
+  const qa = {
+    "who are you": "I am Naveen Porwal, a data analyst skilled in Python, Tableau, and data visualization.",
+    "what skills do you have": "I have expertise in Python programming, Tableau dashboard creation, and data analytics.",
+    "where can i find your portfolio": "You can visit my portfolio at https://naveenporwal3.github.io/portfolio.html",
+    "how can i contact you": "You can reach me via the Contact page on my portfolio website.",
+    "tell me about your experience": "I have experience working with data visualization, creating dashboards, and Python automation.",
+    "what projects have you done": "I have worked on Tableau dashboards, Python calculators, and various data analytics projects.",
+    "help": "Try asking me about my skills, projects, experience, or how to contact me."
+  };
+
+  function getAnswer() {
+    const input = document.getElementById("userInput").value.toLowerCase().trim();
+    const response = qa[input] || "Sorry, I don't know the answer to that yet. Please ask something else!";
+    document.getElementById("botResponse").innerText = response;
+  }
+</script>
