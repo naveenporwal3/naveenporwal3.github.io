@@ -61,19 +61,60 @@
 </section>
 
 <script>
-  const qa = {
-    "who are you": "I am Naveen Porwal, a data analyst skilled in Python, Tableau, and data visualization.",
-    "what skills do you have": "I have expertise in Python programming, Tableau dashboard creation, and data analytics.",
-    "where can i find your portfolio": "You can visit my portfolio at https://naveenporwal3.github.io/portfolio.html",
-    "how can i contact you": "You can reach me via the Contact page on my portfolio website.",
-    "tell me about your experience": "I have experience working with data visualization, creating dashboards, and Python automation.",
-    "what projects have you done": "I have worked on Tableau dashboards, Python calculators, and various data analytics projects.",
-    "help": "Try asking me about my skills, projects, experience, or how to contact me."
-  };
+  // List of Q&A with keywords for better matching
+  const qa = [
+    {
+      keywords: ["who", "you"],
+      answer: "I am Naveen Porwal, a data scientist skilled in Python, Tableau, Power BI, Power Apps/Automate, SQL and data visualization."
+    },
+    {
+      keywords: ["skill", "have", "skills"],
+      answer: "I have expertise in Python programming, Tableau dashboard creation, and data analytics."
+    },
+    {
+      keywords: ["portfolio", "find", "where"],
+      answer: "You can visit my portfolio at https://naveenporwal3.github.io/portfolio.html"
+    },
+    {
+      keywords: ["contact", "reach", "email", "phone"],
+      answer: "You can reach me via the Contact page on my portfolio website."
+    },
+    {
+      keywords: ["experience", "worked", "background"],
+      answer: "I have experience working with data visualization, creating dashboards, and Python automation."
+    },
+    {
+      keywords: ["project", "done", "work"],
+      answer: "I have worked on Tableau dashboards, Python calculators, and various data analytics projects."
+    },
+    {
+      keywords: ["help", "assist"],
+      answer: "Try asking me about my skills, projects, experience, or how to contact me."
+    }
+  ];
+
+  // Simple function to check if all keywords are in input text
+  function containsKeywords(input, keywords) {
+    input = input.toLowerCase();
+    return keywords.every(keyword => input.includes(keyword));
+  }
 
   function getAnswer() {
     const input = document.getElementById("userInput").value.toLowerCase().trim();
-    const response = qa[input] || "Sorry, I don't know the answer to that yet. Please ask something else!";
-    document.getElementById("botResponse").innerText = response;
+
+    if (!input) {
+      document.getElementById("botResponse").innerText = "Please type a question!";
+      return;
+    }
+
+    // Find the best match where all keywords are contained in user input
+    const matched = qa.find(item => containsKeywords(input, item.keywords));
+
+    if (matched) {
+      document.getElementById("botResponse").innerText = matched.answer;
+    } else {
+      // fallback response
+      document.getElementById("botResponse").innerText = "Sorry, I don't understand that. Try asking about my skills, projects, or experience.";
+    }
   }
 </script>
