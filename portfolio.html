@@ -64,6 +64,22 @@
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+
+    .app-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+
+    .portfolio h3 {
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
@@ -74,7 +90,7 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li> <!-- Link to Portfolio Page -->
+      <li><a href="portfolio.html">Portfolio</a></li>
     </ul>
   </nav>
 
@@ -82,17 +98,25 @@
   <div class="content">
     <h2>Portfolio - Dashboards</h2>
 
-    <!-- Tableau Dashboard Embed -->
+    <!-- Tableau Dashboard -->
     <section class="portfolio">
       <h3>Tableau Dashboard</h3>
-      
-      <!-- Embed the Tableau dashboard using iframe -->
-      <iframe src="https://public.tableau.com/views/SuperstoreAssignment_17529924217280/StateSales?:language=en-US&:embed=true&:toolbar=yes&:display_count=yes" 
-              width="100%" 
-              height="600px" 
-              frameborder="0" 
-              allowfullscreen="true">
+      <iframe src="https://public.tableau.com/views/SuperstoreAssignment_17529924217280/StateSales?:language=en-US&:embed=true&:toolbar=yes&:display_count=yes"
+              frameborder="0" allowfullscreen="true">
       </iframe>
+    </section>
+
+    <!-- Streamlit Calculator App -->
+    <section class="portfolio">
+      <h3>Python Calculator App (Streamlit)</h3>
+
+      <!-- Embedded App (may not work if Streamlit blocks iframe) -->
+      <iframe src="https://yourusername.streamlit.app" allowfullscreen></iframe>
+
+      <!-- Fallback button if iframe fails -->
+      <a href="https://calculator-app-g63camuddhytd6hq5paiej.streamlit.app/" target="_blank" class="app-button">
+        Open Calculator App in New Tab
+      </a>
     </section>
   </div>
 
