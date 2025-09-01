@@ -61,11 +61,10 @@
 </section>
 
 <script>
-  // List of Q&A with keywords for better matching
   const qa = [
     {
       keywords: ["who", "you"],
-      answer: "I am Naveen Porwal, a data scientist skilled in Python, Tableau, Power BI, Power Apps/Automate, SQL and data visualization."
+      answer: "I am Naveen Porwal, a data analyst skilled in Python, Tableau, and data visualization."
     },
     {
       keywords: ["skill", "have", "skills"],
@@ -93,10 +92,10 @@
     }
   ];
 
-  // Simple function to check if all keywords are in input text
-  function containsKeywords(input, keywords) {
+  // Change here: return true if **any** keyword is found in input
+  function containsAnyKeyword(input, keywords) {
     input = input.toLowerCase();
-    return keywords.every(keyword => input.includes(keyword));
+    return keywords.some(keyword => input.includes(keyword));
   }
 
   function getAnswer() {
@@ -107,13 +106,12 @@
       return;
     }
 
-    // Find the best match where all keywords are contained in user input
-    const matched = qa.find(item => containsKeywords(input, item.keywords));
+    // Find the first matching QA where any keyword matches
+    const matched = qa.find(item => containsAnyKeyword(input, item.keywords));
 
     if (matched) {
       document.getElementById("botResponse").innerText = matched.answer;
     } else {
-      // fallback response
       document.getElementById("botResponse").innerText = "Sorry, I don't understand that. Try asking about my skills, projects, or experience.";
     }
   }
