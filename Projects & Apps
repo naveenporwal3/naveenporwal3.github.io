@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Projects & Apps</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 40px 20px;
+      color: #1a202c;
+    }
+    h1, h2 {
+      color: #2b6cb0;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 50px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto 60px auto;
+    }
+    .project-card {
+      background: white;
+      border: 2px solid #2b6cb0;
+      border-radius: 12px;
+      box-shadow: 0 8px 15px rgba(43, 108, 176, 0.2);
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(43, 108, 176, 0.35);
+      border-color: #1e40af;
+    }
+    .project-image {
+      width: 100%;
+      height: 160px;
+      background-color: #e2e8f0;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      object-fit: cover;
+      border: 1px solid #cbd5e0;
+      box-shadow: inset 0 0 10px #cbd5e0;
+    }
+    .project-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #2c5282;
+      font-weight: 700;
+    }
+    .project-description {
+      flex-grow: 1;
+      margin-bottom: 20px;
+      line-height: 1.5;
+      color: #4a5568;
+    }
+    .project-link {
+      text-align: center;
+    }
+    .project-link a {
+      text-decoration: none;
+      background: #2b6cb0;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 5px 10px rgba(43, 108, 176, 0.3);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+      letter-spacing: 0.5px;
+    }
+    .project-link a:hover {
+      background: #1e40af;
+      box-shadow: 0 8px 20px rgba(30, 64, 175, 0.5);
+    }
+
+    /* Copyright & FAQ section */
+    .info-section {
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      color: #2d3748;
+    }
+    .info-section h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #2b6cb0;
+      font-weight: 700;
+      border-bottom: 2px solid #2b6cb0;
+      padding-bottom: 5px;
+    }
+    .info-section p {
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .faq-item {
+      margin-bottom: 20px;
+    }
+    .faq-question {
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #2c5282;
+    }
+    .faq-answer {
+      margin-left: 10px;
+      color: #4a5568;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 20px 10px;
+      }
+      .project-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Projects & Apps</h1>
+
+  <div class="projects-container">
+
+    <!-- Business Quiz App -->
+    <div class="project-card">
+      <img src="https://static.streamlit.io/examples/dice.jpg" alt="Business Quiz App Screenshot" class="project-image" />
+      <h2 class="project-title">Business Quiz App</h2>
+      <p class="project-description">
+        An interactive quiz application designed to test and enhance your business knowledge.
+        The app presents multiple-choice questions, tracks your score in real-time, and provides instant feedback.
+        A fun way to challenge yourself and learn more about business topics.
+      </p>
+      <div class="project-link">
+        <a href="https://app-business-quiz-8vop9yy2wuyqifxtg5uuwd.streamlit.app/" target="_blank" rel="noopener noreferrer">Try the Business Quiz App</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Copyright Warning -->
+  <section class="info-section">
+    <h2>Copyright Notice</h2>
+    <p>
+      All content, code, and media on this site are © [Your Name] [Year].  
+      Unauthorized copying, distribution, or modification of the material is strictly prohibited.  
+      Please respect intellectual property rights and contact me for permissions or collaborations.
+    </p>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="info-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">Q: How can I try your apps?</div>
+      <div class="faq-answer">A: Simply click the "Try the Business Quiz App" button above to launch the app in a new tab.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Q: Can I use your code for my own projects?</div>
+      <div class="faq-answer">A: Please contact me before using any code or content. I’m happy to discuss permissions or collaborations.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Q: How do I report bugs or request features?</div>
+      <div class="faq-answer">A: You can reach out via the contact page or email me directly to share feedback or suggestions.</div>
+    </div>
+
+  </section>
+
+</body>
+</html>
