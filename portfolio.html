@@ -1,7 +1,7 @@
 <section class="portfolio">
+  <!-- Tableau Dashboard -->
   <h3>Tableau Dashboard – Superstore Assignment</h3>
   <p>Click the button below to view the interactive Tableau dashboard in a new tab:</p>
-
   <a href="https://public.tableau.com/views/SuperstoreAssignment_17529924217280/StateSales?:language=en-US&:embed=true&:toolbar=yes&:display_count=yes"
      target="_blank"
      style="
@@ -20,6 +20,7 @@
 
   <br><br>
 
+  <!-- Calculator App -->
   <h3>Calculator App</h3>
   <p>Try the calculator app by clicking the button below:</p>
   <a href="https://calculator-app-g63camuddhytd6hq5paiej.streamlit.app/" 
@@ -37,6 +38,21 @@
      ">
     Open Calculator
   </a>
+
+  <br><br>
+
+  <!-- Zoho Dashboard -->
+  <h3>Zoho Dashboard – Sales Overview</h3>
+  <p>View the embedded Zoho Analytics dashboard below:</p>
+  <div style="overflow-x: auto;">
+    <iframe 
+      frameborder="0" 
+      width="800" 
+      height="600" 
+      src="https://analytics.zoho.in/open-view/469651000000005228"
+      style="max-width: 100%; border: 1px solid #ccc; border-radius: 8px;">
+    </iframe>
+  </div>
 
   <br><br>
 
@@ -60,6 +76,7 @@
   </a>
 </section>
 
+<!-- Chatbot Script -->
 <script>
   const qa = [
     {
@@ -92,27 +109,23 @@
     }
   ];
 
-  // Change here: return true if **any** keyword is found in input
   function containsAnyKeyword(input, keywords) {
     input = input.toLowerCase();
     return keywords.some(keyword => input.includes(keyword));
   }
 
   function getAnswer() {
-    const input = document.getElementById("userInput").value.toLowerCase().trim();
+    let input = document.getElementById("userInput").value.trim().toLowerCase();
 
     if (!input) {
       document.getElementById("botResponse").innerText = "Please type a question!";
       return;
     }
 
-    // Find the first matching QA where any keyword matches
     const matched = qa.find(item => containsAnyKeyword(input, item.keywords));
 
-    if (matched) {
-      document.getElementById("botResponse").innerText = matched.answer;
-    } else {
-      document.getElementById("botResponse").innerText = "Sorry, I don't understand that. Try asking about my skills, projects, or experience.";
-    }
+    document.getElementById("botResponse").innerText = matched 
+      ? matched.answer 
+      : "Sorry, I don't understand that. Try asking about my skills, projects, or experience.";
   }
 </script>
