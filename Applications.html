@@ -1,242 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Projects & Apps</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* CSS Reset to prevent browser defaults */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
+      background: linear-gradient(135deg, #e6fffa 0%, #ffffff 100%);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f0f4f8;
-      margin: 0;
-      padding: 8px 4px; /* Further reduced padding */
-      color: #1a202c;
     }
-    h1, h2 {
-      color: #2b6cb0;
-    }
-    h1 {
-      text-align: center;
-      margin: 0;
-      padding: 4px 0; /* Further reduced padding */
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.6px; /* Slightly reduced */
-      font-size: 1.4rem; /* Further reduced font size */
-    }
-    .projects-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 12px; /* Further reduced gap */
-      max-width: 600px; /* Consistent width */
-      margin: 0 auto 15px auto; /* Further reduced margin */
-    }
-    .project-card {
-      background: white;
-      border: 1px solid #2b6cb0;
-      border-radius: 5px; /* Smaller radius */
-      box-shadow: 0 3px 6px rgba(43, 108, 176, 0.15); /* Smaller shadow */
-      padding: 8px; /* Further reduced padding */
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .project-card, .info-section, .contact-section {
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .project-card:hover {
-      transform: translateY(-2px); /* Reduced lift */
+    .project-card:hover, .info-section:hover, .contact-section:hover {
+      transform: translateY(-2px);
       box-shadow: 0 6px 12px rgba(43, 108, 176, 0.3);
-      border-color: #1e40af;
+    }
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    .back-button:hover {
+      transform: scale(1.05);
+      background-color: #f472b6;
     }
     .project-image {
       width: 100%;
-      height: 80px; /* Further reduced height */
-      background-color: #e2e8f0;
-      border-radius: 5px;
-      margin-bottom: 6px; /* Further reduced margin */
+      height: 80px;
       object-fit: cover;
+      border-radius: 5px;
       border: 1px solid #cbd5e0;
-      box-shadow: inset 0 0 5px #cbd5e0; /* Smaller shadow */
-    }
-    .project-title {
-      font-size: 0.95rem; /* Further reduced font size */
-      margin-bottom: 6px; /* Further reduced margin */
-      color: #2c5282;
-      font-weight: 700;
-    }
-    .project-description {
-      flex-grow: 1;
-      margin-bottom: 6px; /* Further reduced margin */
-      line-height: 1.2; /* Tighter line height */
-      color: #4a5568;
-      font-size: 0.8rem; /* Further reduced font size */
-    }
-    .project-link {
-      text-align: center;
-      margin-bottom: 6px; /* Further reduced margin */
-    }
-    .project-link a {
-      text-decoration: none;
-      background: #2b6cb0;
-      color: white;
-      padding: 5px 10px; /* Further reduced padding */
-      border-radius: 12px; /* Smaller radius */
-      font-weight: 600;
-      font-size: 0.8rem; /* Further reduced font size */
-      box-shadow: 0 2px 5px rgba(43, 108, 176, 0.2); /* Smaller shadow */
-      transition: background 0.2s ease, box-shadow 0.2s ease;
-      display: inline-block;
-      letter-spacing: 0.3px;
-    }
-    .project-link a:hover {
-      background: #1e40af;
-      box-shadow: 0 4px 8px rgba(30, 64, 175, 0.4);
-    }
-
-    /* Info sections */
-    .info-section {
-      max-width: 600px; /* Consistent width */
-      margin: 0 auto 15px auto; /* Further reduced margin */
-      padding: 8px; /* Match project-card padding */
-      background: white;
-      border-radius: 5px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-      color: #2d3748;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .info-section h2 {
-      margin-top: 0;
-      margin-bottom: 6px; /* Further reduced margin */
-      color: #2b6cb0;
-      font-weight: 700;
-      border-bottom: 1px solid #2b6cb0;
-      padding-bottom: 2px; /* Further reduced padding */
-      font-size: 1rem; /* Further reduced font size */
-    }
-    .info-section p {
-      line-height: 1.3; /* Tighter line height */
-      margin-bottom: 6px; /* Further reduced margin */
-      font-size: 0.85rem; /* Further reduced font size */
-      flex-grow: 1;
-    }
-    .faq-item {
-      margin-bottom: 6px; /* Further reduced margin */
-      flex-grow: 1;
-    }
-    .faq-question {
-      font-weight: 700;
-      margin-bottom: 2px; /* Further reduced margin */
-      color: #2c5282;
-      font-size: 0.8rem; /* Further reduced font size */
-    }
-    .faq-answer {
-      margin-left: 4px; /* Further reduced margin */
-      color: #4a5568;
-      line-height: 1.1; /* Further reduced line height */
-      font-size: 0.75rem; /* Further reduced font size */
-    }
-
-    /* Contact Section */
-    .contact-section {
-      background: linear-gradient(135deg, #2b6cb0, #63b3ed);
-      color: white;
-      border-radius: 5px;
-      padding: 8px; /* Match other sections */
-      text-align: center;
-      max-width: 600px; /* Consistent width */
-      margin: 0 auto 15px auto; /* Further reduced margin */
-      box-shadow: 0 3px 6px rgba(43, 108, 176, 0.2);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .contact-section h2 {
-      color: #fff;
-      font-size: 1rem; /* Match info-section h2 */
-      margin-bottom: 6px; /* Further reduced margin */
-    }
-    .contact-details {
-      flex-grow: 1;
-    }
-    .contact-details p {
-      margin: 3px 0; /* Further reduced margin */
-      font-size: 0.8rem; /* Further reduced font size */
-    }
-    .contact-details a {
-      color: #ffeb3b;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .contact-details a:hover {
-      text-decoration: underline;
-    }
-
-    /* Back Button */
-    .back-button {
-      text-align: center;
-      margin: 15px 0 8px 0; /* Further reduced margin */
-    }
-    .back-button a {
-      display: inline-block;
-      text-decoration: none;
-      padding: 5px 10px; /* Further reduced padding */
-      background-color: #718096;
-      color: #fff;
-      border-radius: 10px; /* Smaller radius */
-      font-weight: bold;
-      font-size: 0.8rem; /* Further reduced font size */
-      transition: background 0.2s;
-    }
-    .back-button a:hover {
-      background-color: #4a5568;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 4px 2px; /* Further reduced padding */
-      }
-      .projects-container, .info-section, .contact-section {
-        max-width: 100%; /* Full width on small screens */
-      }
-      .project-title {
-        font-size: 0.85rem; /* Further reduced */
-      }
-      .faq-question {
-        font-size: 0.75rem; /* Further reduced */
-      }
-      .faq-answer {
-        font-size: 0.7rem; /* Further reduced */
-      }
-      .info-section h2, .contact-section h2 {
-        font-size: 0.95rem; /* Further reduced */
-      }
+      box-shadow: inset 0 0 5px #cbd5e0;
     }
   </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col items-center py-6">
+  <header class="w-full max-w-[600px] mx-auto mb-4">
+    <h1 class="text-2xl font-bold text-gray-800 text-center uppercase tracking-tight">My Projects & Apps</h1>
+    <p class="text-teal-600 text-center mt-1 text-sm">Explore my work in data analytics and app development</p>
+  </header>
 
-  <h1>My Projects & Apps</h1>
-
-  <div class="projects-container">
+  <div class="projects-container w-full max-w-[600px] mx-auto grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-3 mb-4">
     <!-- Business Quiz App -->
-    <div class="project-card">
-      <img src="https://static.streamlit.io/examples/dice.jpg" alt="Business Quiz App Screenshot" class="project-image" />
-      <h2 class="project-title">General Knowledge (UPSC & PSC) Quiz App</h2>
-      <p class="project-description">
-        An interactive quiz application designed to test and enhance your business knowledge.
-        The app presents multiple-choice questions, tracks your score in real-time, and provides instant feedback.
-        A fun way to challenge yourself and learn more about business topics.
+    <div class="project-card p-2 bg-teal-50 rounded-[5px] border border-teal-200 shadow-[0_3px_6px_rgba(43,108,176,0.15)]">
+      <img src="https://static.streamlit.io/examples/dice.jpg" alt="Business Quiz App Screenshot" class="project-image mb-1.5" />
+      <h2 class="project-title text-[0.95rem] font-bold text-gray-800 mb-1.5">General Knowledge (UPSC & PSC) Quiz App</h2>
+      <p class="project-description text-gray-600 text-[0.8rem] mb-1.5 leading-[1.2]">
+        An interactive quiz application designed to test and enhance your business knowledge. The app presents multiple-choice questions, tracks your score in real-time, and provides instant feedback.
       </p>
-      <div class="project-link">
-        <a href="https://app-business-quiz.streamlit.app/" target="_blank" rel="noopener noreferrer">
+      <div class="project-link text-center mb-1.5">
+        <a href="https://app-business-quiz.streamlit.app/" target="_blank" rel="noopener noreferrer"
+           class="inline-block px-2.5 py-1.5 bg-teal-600 text-white text-[0.8rem] font-semibold rounded-[12px] shadow-[0_2px_5px_rgba(43,108,176,0.2)] hover:bg-teal-700 transition tracking-tight">
           Try the Quiz App
         </a>
       </div>
@@ -244,46 +61,50 @@
   </div>
 
   <!-- Copyright -->
-  <section class="info-section">
-    <h2>Copyright Notice</h2>
-    <p>
-      All content, code, and media on this site are © Mentora Labs 2025.  
-      Unauthorized copying, distribution, or modification of the material is strictly prohibited.  
-      Please contact me for permission if you'd like to use anything from this website.
+  <section class="info-section w-full max-w-[600px] mx-auto p-2 bg-lime-50 rounded-[5px] border border-lime-200 shadow-[0_3px_6px_rgba(0,0,0,0.1)] mb-4">
+    <h2 class="text-[1rem] font-bold text-gray-800 border-b border-lime-300 pb-0.5 mb-1.5">Copyright Notice</h2>
+    <p class="text-gray-600 text-[0.85rem] mb-1.5 leading-[1.3]">
+      All content, code, and media on this site are © Mentora Labs 2025. Unauthorized copying, distribution, or modification of the material is strictly prohibited. Please contact me for permission if you'd like to use anything from this website.
     </p>
   </section>
 
   <!-- FAQ -->
-  <section class="info-section" id="faq">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-item">
-      <div class="faq-question">Q: How can I try your apps?</div>
-      <div class="faq-answer">A: Click the button under the app card to open the app in a new tab.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question">Q: Can I use your code for my projects?</div>
-      <div class="faq-answer">A: Please ask for permission. I'm happy to share for non-commercial or collaborative use.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question">Q: Will you add more apps?</div>
-      <div class="faq-answer">A: Yes! I'm actively building and will keep this page updated.</div>
+  <section class="info-section w-full max-w-[600px] mx-auto p-2 bg-purple-50 rounded-[5px] border border-purple-200 shadow-[0_3px_6px_rgba(0,0,0,0.1)] mb-4">
+    <h2 class="text-[1rem] font-bold text-gray-800 border-b border-purple-300 pb-0.5 mb-1.5">Frequently Asked Questions</h2>
+    <div class="space-y-1.5">
+      <div class="faq-item mb-1.5">
+        <div class="faq-question text-[0.8rem] font-bold text-gray-700 mb-0.5">Q: How can I try your apps?</div>
+        <div class="faq-answer text-[0.75rem] text-gray-600 ml-1 leading-[1.1]">A: Click the button under the app card to open the app in a new tab.</div>
+      </div>
+      <div class="faq-item mb-1.5">
+        <div class="faq-question text-[0.8rem] font-bold text-gray-700 mb-0.5">Q: Can I use your code for my projects?</div>
+        <div class="faq-answer text-[0.75rem] text-gray-600 ml-1 leading-[1.1]">A: Please ask for permission. I'm happy to share for non-commercial or collaborative use.</div>
+      </div>
+      <div class="faq-item mb-1.5">
+        <div class="faq-question text-[0.8rem] font-bold text-gray-700 mb-0.5">Q: Will you add more apps?</div>
+        <div class="faq-answer text-[0.75rem] text-gray-600 ml-1 leading-[1.1]">A: Yes! I'm actively building and will keep this page updated.</div>
+      </div>
     </div>
   </section>
 
-  <!-- Contact Us -->
-  <section class="info-section contact-section">
-    <h2>Contact Us</h2>
-    <div class="contact-details">
-      <p><strong>Email:</strong> <a href="mailto:naveenporwal3@hotmail.com">naveenporwal3@hotmail.com</a></p>
-      <p><strong>Phone:</strong> <a href="tel:+919250933584">+91 9250 933-584</a></p>
-      <p><strong>Address:</strong> 5th Floor Neeladeri Nagar, Electronic City, Bangalore, India</p>
+  <!-- Contact Section -->
+  <section class="contact-section w-full max-w-[600px] mx-auto p-2 bg-gradient-to-r from-teal-500 to-teal-700 text-white rounded-[5px] shadow-[0_3px_6px_rgba(43,108,176,0.2)] mb-4">
+    <h2 class="text-[1rem] font-bold border-b border-teal-200 pb-0.5 mb-1.5">Contact Us</h2>
+    <div class="contact-details text-[0.8rem]">
+      <p class="my-0.5"><strong>Email:</strong> <a href="mailto:naveenporwal3@hotmail.com" class="text-yellow-200 hover:underline">naveenporwal3@hotmail.com</a></p>
+      <p class="my-0.5"><strong>Phone:</strong> <a href="tel:+919250933584" class="text-yellow-200 hover:underline">+91 9250 933-584</a></p>
+      <p class="my-0.5"><strong>Address:</strong> 5th Floor Neeladeri Nagar, Electronic City, Bangalore, India</p>
     </div>
   </section>
 
   <!-- Back Button -->
-  <div class="back-button">
-    <a href="index.html" onclick="history.back(); return false;">← Back</a>
+  <div class="text-center mt-4">
+    <a href="index.html" class="back-button px-2.5 py-1.5 bg-pink-500 text-white font-semibold rounded-[10px]">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      Back to Home
+    </a>
   </div>
-
 </body>
 </html>
