@@ -1,168 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Projects & Apps</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance System FAQ</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f0f4f8;
       margin: 0;
-      padding: 40px 20px;
+      padding: 0 20px 20px 20px; /* removed top padding */
       color: #1a202c;
-    }
-    h1, h2 {
-      color: #2b6cb0;
+      font-size: 14px; /* smaller base font */
     }
     h1 {
       text-align: center;
-      margin-bottom: 50px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    .projects-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-      max-width: 1000px;
-      margin: 0 auto 60px auto;
-    }
-    .project-card {
-      background: white;
-      border: 2px solid #2b6cb0;
-      border-radius: 12px;
-      box-shadow: 0 8px 15px rgba(43, 108, 176, 0.2);
-      padding: 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 30px rgba(43, 108, 176, 0.35);
-      border-color: #1e40af;
-    }
-    .project-image {
-      width: 100%;
-      height: 160px;
-      background-color: #e2e8f0;
-      border-radius: 10px;
       margin-bottom: 20px;
-      object-fit: cover;
-      border: 1px solid #cbd5e0;
-      box-shadow: inset 0 0 10px #cbd5e0;
-    }
-    .project-title {
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-      color: #2c5282;
-      font-weight: 700;
-    }
-    .project-description {
-      flex-grow: 1;
-      margin-bottom: 20px;
-      line-height: 1.5;
-      color: #4a5568;
-    }
-    .project-link {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .project-link a {
-      text-decoration: none;
-      background: #2b6cb0;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 25px;
-      font-weight: 600;
-      font-size: 1rem;
-      box-shadow: 0 5px 10px rgba(43, 108, 176, 0.3);
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-      display: inline-block;
-      letter-spacing: 0.5px;
-    }
-    .project-link a:hover {
-      background: #1e40af;
-      box-shadow: 0 8px 20px rgba(30, 64, 175, 0.5);
-    }
-
-    /* Back Button */
-    .back-button {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .back-button a {
-      display: inline-block;
-      text-decoration: none;
-      padding: 10px 20px;
-      background-color: #718096;
-      color: #fff;
-      border-radius: 20px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .back-button a:hover {
-      background-color: #4a5568;
-    }
-
-    /* Info sections */
-    .info-section {
-      max-width: 800px;
-      margin: 0 auto 40px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      color: #2d3748;
-    }
-    .info-section h2 {
-      margin-top: 0;
-      margin-bottom: 15px;
       color: #2b6cb0;
-      font-weight: 700;
-      border-bottom: 2px solid #2b6cb0;
-      padding-bottom: 5px;
+      font-size: 1.8rem; /* reduced */
     }
-    .info-section p {
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-    .faq-item {
-      margin-bottom: 20px;
-    }
-    .faq-question {
-      font-weight: 700;
-      margin-bottom: 8px;
+    h2 {
       color: #2c5282;
+      margin-top: 25px;
+      font-size: 1.2rem; /* reduced */
     }
-    .faq-answer {
-      margin-left: 10px;
-      color: #4a5568;
-      line-height: 1.5;
+    .info-section {
+      background: white;
+      padding: 15px;
+      margin: 15px auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      max-width: 900px;
+    }
+    p, li {
+      line-height: 1.4;
+      font-size: 0.9rem; /* slightly smaller */
+    }
+    ul {
+      margin-left: 20px;
     }
 
-    /* Contact Section (compressed) */
+    /* Contact Section (compact + colorful) */
     .contact-section {
       background: linear-gradient(135deg, #2b6cb0, #63b3ed);
       color: white;
       border-radius: 10px;
-      padding: 18px 15px;
+      padding: 15px;
       text-align: center;
       max-width: 600px;
-      margin: 0 auto 40px auto;
+      margin: 25px auto;
       box-shadow: 0 6px 15px rgba(43, 108, 176, 0.25);
     }
     .contact-section h2 {
       color: #fff;
-      font-size: 1.4rem;
-      margin-bottom: 12px;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
     }
     .contact-details p {
-      margin: 8px 0;
-      font-size: 0.95rem;
+      margin: 6px 0;
+      font-size: 0.9rem;
     }
     .contact-details a {
       color: #ffeb3b;
@@ -172,74 +68,33 @@
     .contact-details a:hover {
       text-decoration: underline;
     }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 20px 10px;
-      }
-      .project-title {
-        font-size: 1.2rem;
-      }
-    }
   </style>
 </head>
 <body>
+  <h1>Attendance System - FAQ</h1>
 
-  <h1>My Projects & Apps</h1>
-
-  <!-- Back Button -->
-  <div class="back-button">
-    <a href="index.html" onclick="history.back(); return false;">← Back</a>
-  </div>
-
-  <div class="projects-container">
-
-    <!-- Business Quiz App -->
-    <div class="project-card">
-      <img src="https://static.streamlit.io/examples/dice.jpg" alt="Business Quiz App Screenshot" class="project-image" />
-      <h2 class="project-title">General Knowledge(UPSC & PSC) Quiz App</h2>
-      <p class="project-description">
-        An interactive quiz application designed to test and enhance your business knowledge.
-        The app presents multiple-choice questions, tracks your score in real-time, and provides instant feedback.
-        A fun way to challenge yourself and learn more about business topics.
-      </p>
-      <div class="project-link">
-        <a href="https://app-business-quiz.streamlit.app/" target="_blank" rel="noopener noreferrer">
-          Try the Quiz App
-        </a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Copyright -->
   <section class="info-section">
-    <h2>Copyright Notice</h2>
-    <p>
-      All content, code, and media on this site are © Mentora Labs 2025.  
-      Unauthorized copying, distribution, or modification of the material is strictly prohibited.  
-      Please contact me for permission if you'd like to use anything from this website.
-    </p>
+    <h2>1. What is this system?</h2>
+    <p>This is a biometric + QR-based attendance system to help record employee attendance easily and securely.</p>
   </section>
 
-  <!-- FAQ -->
-  <section class="info-section" id="faq">
-    <h2>Frequently Asked Questions</h2>
+  <section class="info-section">
+    <h2>2. How does it work?</h2>
+    <ul>
+      <li>The kiosk displays a QR code.</li>
+      <li>Employees scan the QR code using their mobile page.</li>
+      <li>Attendance is verified and recorded in the system.</li>
+    </ul>
+  </section>
 
-    <div class="faq-item">
-      <div class="faq-question">Q: How can I try your apps?</div>
-      <div class="faq-answer">A: Click the button under the app card to open the app in a new tab.</div>
-    </div>
+  <section class="info-section">
+    <h2>3. Is a selfie required?</h2>
+    <p>No, attendance is verified only through employee QR scan.</p>
+  </section>
 
-    <div class="faq-item">
-      <div class="faq-question">Q: Can I use your code for my projects?</div>
-      <div class="faq-answer">A: Please ask for permission. I'm happy to share for non-commercial or collaborative use.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-question">Q: Will you add more apps?</div>
-      <div class="faq-answer">A: Yes! I'm actively building and will keep this page updated.</div>
-    </div>
+  <section class="info-section">
+    <h2>4. What happens after scanning?</h2>
+    <p>The system validates the session and confirms attendance with employee details and time slot.</p>
   </section>
 
   <!-- Contact Us -->
@@ -251,6 +106,5 @@
       <p><strong>Address:</strong> 5th Floor Neeladeri Nagar, Electronic City, Bangalore, India</p>
     </div>
   </section>
-
 </body>
 </html>
