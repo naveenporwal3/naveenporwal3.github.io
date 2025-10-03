@@ -5,106 +5,170 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
     <style>
-        /* Basic reset for margins and paddings */
+        /* Reset and base styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Background and general styling */
         body {
-            font-family: 'Arial', sans-serif;
-            background-image: url('https://via.placeholder.com/1500'); /* Replace with your background image */
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #ffccd5, #b3e5fc, #e1bee7);
+            background-size: 200% 200%;
+            animation: softGradient 12s ease infinite;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            color: #333333;
         }
 
-        /* Container to hold the content */
+        /* Soft gradient animation */
+        @keyframes softGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Container styling */
         .container {
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-            padding: 40px;
-            border-radius: 15px;
-            max-width: 700px;
-            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            max-width: 600px;
+            width: 90%;
             text-align: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            animation: fadeIn 0.7s ease-out;
+        }
+
+        /* Fade-in animation for container */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         /* Heading */
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #FF6347; /* Tomato color for the heading */
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #ff6f61;
+            text-shadow: 0 0 8px rgba(255, 111, 97, 0.3);
+            margin-bottom: 1.5rem;
         }
 
         /* Paragraph */
         p {
-            font-size: 1.2em;
-            color: #D3D3D3; /* Light gray color */
-            margin-bottom: 30px;
+            font-size: 1.1rem;
+            color: #555555;
+            margin-bottom: 2rem;
+            line-height: 1.6;
         }
 
-        /* Links container */
+        /* Contact links */
         .contact-links {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 1.8rem;
             flex-wrap: wrap;
         }
 
-        /* Style for each link */
         .contact-links a {
             text-decoration: none;
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #FFD700; /* Golden color for links */
-            transition: color 0.3s ease;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #26c6da;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .contact-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #ff6f61;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
         }
 
         .contact-links a:hover {
-            color: #FF6347; /* Tomato color on hover */
-            text-decoration: underline;
+            color: #ff6f61;
+            background: rgba(255, 111, 97, 0.1);
         }
 
-        /* Button style */
+        /* Buttons */
         .btn {
             display: inline-block;
-            background-color: #FF6347;
-            color: white;
-            padding: 15px 30px;
-            font-size: 1.2em;
+            background: #ff6f61;
+            color: #ffffff;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
             text-decoration: none;
-            border-radius: 5px;
-            margin-top: 30px;
-            transition: background-color 0.3s ease;
+            border-radius: 0.5rem;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 111, 97, 0.4);
         }
 
         .btn:hover {
-            background-color: #FF4500; /* Darker red on hover */
+            background: #e65b50;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 111, 97, 0.6);
         }
 
-        /* "Back to Homepage" button */
         .back-home-btn {
-            display: inline-block;
-            background-color: #4CAF50; /* Green color for Back to Homepage button */
-            color: white;
-            padding: 15px 30px;
-            font-size: 1.2em;
+            background: #26c6da;
+            color: #ffffff;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
             text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(38, 198, 218, 0.4);
         }
 
         .back-home-btn:hover {
-            background-color: #45a049; /* Darker green on hover */
+            background: #1a9cb0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(38, 198, 218, 0.6);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .contact-links a {
+                font-size: 1rem;
+                padding: 0.4rem 0.8rem;
+            }
+            .btn, .back-home-btn {
+                font-size: 1rem;
+                padding: 0.6rem 1.5rem;
+            }
         }
     </style>
 </head>
@@ -120,10 +184,7 @@
             <a href="https://www.linkedin.com/in/naveen-porwal" target="_blank">LinkedIn</a>
         </div>
 
-        <!-- Optional: Add a call-to-action button -->
         <a href="mailto:naveenporwal3@hotmail.com" class="btn">Send an Email</a>
-
-        <!-- "Back to Homepage" button -->
         <a href="/" class="back-home-btn">Back to Homepage</a>
     </div>
 </body>
