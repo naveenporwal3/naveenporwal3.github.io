@@ -4,111 +4,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Me</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-
-    header {
-      background-color: #A0C878;
-      color: white;
-      text-align: center;
-      padding: 20px 0; /* Reduced padding */
-      margin-bottom: 15px; /* Reduced margin */
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 24px; /* Matching font size with "Naveen Porwal" */
-    }
-
-    .container {
-      max-width: 1000px; /* Reduced max-width */
-      margin: 0 auto;
-      padding: 15px; /* Reduced padding */
-      background-color: white;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Reduced box-shadow */
-      border-radius: 8px; /* Slightly smaller border-radius */
-    }
-
-    h2 {
-      color: #A0C878;
-      font-size: 20px; /* Reduced font size */
-      margin-bottom: 8px; /* Reduced margin */
-    }
-
-    p {
-      line-height: 1.6; /* Reduced line-height */
-      font-size: 1em; /* Reduced font size */
-      margin-bottom: 15px; /* Reduced margin */
-    }
-
     .highlight {
-      color: #003366; /* Dark Blue color */
+      color: #1e3a8a; /* Dark Blue */
       font-weight: bold;
     }
-
-    footer {
-      text-align: center;
-      padding: 15px; /* Reduced padding */
-      background-color: #333;
-      color: white;
-      position: relative;
+    .section-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    footer a {
-      position: absolute;
-      top: 15px; /* Placing it 15px from the top */
-      right: 15px; /* Placing it 15px from the right */
-      text-decoration: none;
-      color: #A0C878;
-      font-size: 1em; /* Reduced font size */
-      transition: color 0.3s ease;
+    .section-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
     }
-
-    footer a:hover {
-      color: #003366; /* Dark Blue color */
-    }
-
   </style>
 </head>
-<body>
+<body class="bg-gray-100 font-sans text-gray-800 antialiased">
 
   <!-- Header Section -->
-  <header>
-    <h1>Naveen Porwal</h1> <!-- Updated header for About Me to match "Naveen Porwal" -->
-    <p>Learn more about my research, interests, and background.</p>
+  <header class="bg-gradient-to-r from-green-500 to-green-700 text-white text-center py-12">
+    <h1 class="text-4xl md:text-5xl font-bold mb-2">Naveen Porwal</h1>
+    <p class="text-lg md:text-xl max-w-2xl mx-auto">Learn more about my research, interests, and background.</p>
   </header>
 
   <!-- Main Content -->
-  <div class="container">
+  <div class="container max-w-4xl mx-auto px-4 py-8">
+    <section class="bio space-y-8">
+      <!-- Who Am I Section -->
+      <div class="section-card bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-semibold text-green-600 mb-4">Who Am I?</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Hi, I'm <span class="highlight">Naveen Porwal</span>, a Data Scientist/Reporting Manager at Merck Bangalore, specializing in the field of AI and automation. My main area of focus is Supervise/reinforcement learning, particularly in the context of <span class="highlight">generalized persistent monitoring</span> by a team of cooperative multi-agent systems.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          My work is applied to a range of real-world problems, helping to optimize risks, resources, timelines, budgets, and performance. Automated systems must work together in real-time to ensure effective monitoring.
+        </p>
+      </div>
 
-    <section class="bio">
-      <h2>Who Am I?</h2>
-      <p>Hi, I'm <span class="highlight">Naveen Porwal</span>, a Data Scientist/Reporting Manager at Merck Bangalore, specializing in the field of AI and automation. My main area of focus is Supervise/reinforcement learning, particularly in the context of <span class="highlight">generalized persistent monitoring</span> by a team of cooperative multi-agent systems.</p> 
-      
-      <p>My work is applied to a range of real-world problems, helping to optimize risks, resources, timelines, budgets, and performance. Automated systems must work together in real-time to ensure effective monitoring.</p>
+      <!-- Background Section -->
+      <div class="section-card bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-semibold text-green-600 mb-4">My Background</h2>
+        <p class="text-gray-700 leading-relaxed">
+          I completed both my <strong>Bachelor's</strong> and <strong>Master's</strong> in Mathematics at IMT Ghaziabad. During my Master's thesis, I worked on <span class="highlight">theoretical high-data Match</span> and its intersection with <span class="highlight">machine learning</span>. This foundational work set the stage for my current research interests in applied machine learning and robotics.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          I am driven by a passion for <span class="highlight">learning and technology</span>. Whether it's coding, experimenting with new AI techniques, or diving into the latest advancements in machine learning, I thrive in the world of innovation. Outside of my academic life, I enjoy cycling, playing Cricket, and learning new languages to expand my horizons.
+        </p>
+      </div>
 
-      <h2>My Background</h2>
-      <p>I completed both my <strong>Bachelor's</strong> and <strong>Master's</strong> in Mathematics at IMT Ghaziabad. During my Master's thesis, I worked on <span class="highlight">theoretical high-data Match</span> and its intersection with <span class="highlight">machine learning</span>. This foundational work set the stage for my current research interests in applied machine learning and robotics.</p>
-      
-      <p>I am driven by a passion for <span class="highlight">learning and technology</span>. Whether it's coding, experimenting with new AI techniques, or diving into the latest advancements in machine learning, I thrive in the world of innovation. Outside of my academic life, I enjoy cycling, playing Cricket, and learning new languages to expand my horizons.</p>
-      
-      <h2>Personal Philosophy</h2>
-      <p>Every day is an opportunity for improvement. I strive to be a better version of myself today than I was yesterday. Whether it's improving my research, exploring new technologies, or simply growing as a person, I believe in constant self-improvement and learning.</p>
-
-      <p>When I’m not immersed in research, you can find me cycling through scenic paths, playing Cricket with friends, or experimenting with new languages and skills to stay sharp.</p>
+      <!-- Personal Philosophy Section -->
+      <div class="section-card bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-semibold text-green-600 mb-4">Personal Philosophy</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Every day is an opportunity for improvement. I strive to be a better version of myself today than I was yesterday. Whether it's improving my research, exploring new technologies, or simply growing as a person, I believe in constant self-improvement and learning.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          When I’m not immersed in research, you can find me cycling through scenic paths, playing Cricket with friends, or experimenting with new languages and skills to stay sharp.
+        </p>
+      </div>
     </section>
   </div>
 
   <!-- Footer Section -->
-  <footer>
+  <footer class="bg-gray-800 text-white text-center py-6 relative">
     <p>&copy; 2025 Naveen Porwal | All rights reserved</p>
-    <a href="index.html">Back to Homepage</a>
+    <a href="index.html" class="absolute top-6 right-6 text-green-400 hover:text-blue-800 transition-colors duration-300">Back to Homepage</a>
   </footer>
 
 </body>
