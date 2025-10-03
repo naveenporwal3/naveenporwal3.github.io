@@ -6,6 +6,9 @@
   <title>About Me</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    body {
+      font-family: 'Roboto Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
     .highlight {
       color: #1e3a8a; /* Dark Blue */
       font-weight: bold;
@@ -14,61 +17,62 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .section-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
     }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-100 font-sans text-gray-800 antialiased">
+<body class="bg-gray-100 text-gray-800 antialiased text-sm leading-tight">
 
   <!-- Header Section -->
-  <header class="bg-gradient-to-r from-green-500 to-green-700 text-white text-center py-12">
-    <h1 class="text-4xl md:text-5xl font-bold mb-2">Naveen Porwal</h1>
-    <p class="text-lg md:text-xl max-w-2xl mx-auto">Learn more about my research, interests, and background.</p>
+  <header class="bg-gradient-to-r from-green-500 to-green-700 text-white text-center py-6">
+    <h1 class="text-3xl md:text-4xl font-bold mb-1">Naveen Porwal</h1>
+    <p class="text-base md:text-lg max-w-xl mx-auto">Learn more about my research, interests, and background.</p>
   </header>
 
   <!-- Main Content -->
-  <div class="container max-w-4xl mx-auto px-4 py-8">
-    <section class="bio space-y-8">
+  <div class="container max-w-3xl mx-auto px-3 py-4">
+    <section class="bio space-y-4">
       <!-- Who Am I Section -->
-      <div class="section-card bg-white rounded-lg shadow-md p-6">
-        <h2 class="text-2xl font-semibold text-green-600 mb-4">Who Am I?</h2>
-        <p class="text-gray-700 leading-relaxed">
-          Hi, I'm <span class="highlight">Naveen Porwal</span>, a Data Scientist/Reporting Manager at Merck Bangalore, specializing in the field of AI and automation. My main area of focus is Supervise/reinforcement learning, particularly in the context of <span class="highlight">generalized persistent monitoring</span> by a team of cooperative multi-agent systems.
+      <div class="section-card bg-white rounded-md shadow-sm p-4">
+        <h2 class="text-xl font-semibold text-green-600 mb-2">Who Am I?</h2>
+        <p class="text-gray-700">
+          Hi, I'm <span class="highlight">Naveen Porwal</span>, a Data Scientist and Reporting Manager at Merck Bangalore, with expertise in AI, automation, and <span class="highlight">end-to-end business intelligence (BI) solutions</span>. My primary focus is on supervised and <span class="highlight">reinforcement learning</span>, specifically for <span class="highlight">generalized persistent monitoring</span> using cooperative multi-agent systems.
         </p>
-        <p class="text-gray-700 leading-relaxed">
-          My work is applied to a range of real-world problems, helping to optimize risks, resources, timelines, budgets, and performance. Automated systems must work together in real-time to ensure effective monitoring.
+        <p class="text-gray-700 mt-2">
+          My work addresses real-world challenges by optimizing risks, resources, timelines, budgets, and performance. I design automated systems that collaborate seamlessly in real-time to ensure efficient and effective monitoring. I leverage a diverse tech stack, including <span class="highlight">Power BI</span> and <span class="highlight">Tableau</span> for advanced data visualization, <span class="highlight">Snowflake</span> for cloud-based data warehousing, and <span class="highlight">Power Automate</span> and <span class="highlight">Power Apps</span> for streamlined workflows and custom applications. Additionally, I architect robust <span class="highlight">data architectures</span> to support scalable and efficient <span class="highlight">business intelligence solutions</span>, enabling data-driven decision-making for business analysts and stakeholders.
         </p>
       </div>
 
       <!-- Background Section -->
-      <div class="section-card bg-white rounded-lg shadow-md p-6">
-        <h2 class="text-2xl font-semibold text-green-600 mb-4">My Background</h2>
-        <p class="text-gray-700 leading-relaxed">
-          I completed both my <strong>Bachelor's</strong> and <strong>Master's</strong> in Mathematics at IMT Ghaziabad. During my Master's thesis, I worked on <span class="highlight">theoretical high-data Match</span> and its intersection with <span class="highlight">machine learning</span>. This foundational work set the stage for my current research interests in applied machine learning and robotics.
+      <div class="section-card bg-white rounded-md shadow-sm p-4">
+        <h2 class="text-xl font-semibold text-green-600 mb-2">My Background</h2>
+        <p class="text-gray-700">
+          I hold a <strong>Bachelor's</strong> and <strong>Master's</strong> degree in Mathematics from IMT Ghaziabad. My Master's thesis explored the intersection of theoretical <span class="highlight">high-dimensional data analysis</span> and <span class="highlight">machine learning</span>, laying the groundwork for my current focus on applied machine learning, robotics, and <span class="highlight">data architecture</span>.
         </p>
-        <p class="text-gray-700 leading-relaxed">
-          I am driven by a passion for <span class="highlight">learning and technology</span>. Whether it's coding, experimenting with new AI techniques, or diving into the latest advancements in machine learning, I thrive in the world of innovation. Outside of my academic life, I enjoy cycling, playing Cricket, and learning new languages to expand my horizons.
+        <p class="text-gray-700 mt-2">
+          I’m deeply passionate about technology and continuous learning. I work with a variety of tools, including <span class="highlight">Advanced Excel</span> for complex data analysis, <span class="highlight">SQL</span> for efficient database querying, and <span class="highlight">Python</span> for building machine learning models. I also utilize <span class="highlight">Power BI</span> and <span class="highlight">Tableau</span> to create interactive dashboards for <span class="highlight">business analysts</span>, and design <span class="highlight">data architectures</span> using <span class="highlight">Snowflake</span> for scalable data solutions. I actively contribute to automation projects using <span class="highlight">Power Automate</span> and develop custom <span class="highlight">end-to-end BI solutions</span> with <span class="highlight">Power Apps</span> to empower organizations. Beyond work, I enjoy cycling, playing cricket, and learning new languages to broaden my perspective.
         </p>
       </div>
 
       <!-- Personal Philosophy Section -->
-      <div class="section-card bg-white rounded-lg shadow-md p-6">
-        <h2 class="text-2xl font-semibold text-green-600 mb-4">Personal Philosophy</h2>
-        <p class="text-gray-700 leading-relaxed">
-          Every day is an opportunity for improvement. I strive to be a better version of myself today than I was yesterday. Whether it's improving my research, exploring new technologies, or simply growing as a person, I believe in constant self-improvement and learning.
+      <div class="section-card bg-white rounded-md shadow-sm p-4">
+        <h2 class="text-xl font-semibold text-green-600 mb-2">Personal Philosophy</h2>
+        <p class="text-gray-700">
+          I believe every day is a chance to grow. My goal is to be a better version of myself today than I was yesterday—whether through refining my research, embracing new technologies like <span class="highlight">cloud-based analytics</span>, <span class="highlight">low-code platforms</span>, or <span class="highlight">data architecture design</span>, or personal development.
         </p>
-        <p class="text-gray-700 leading-relaxed">
-          When I’m not immersed in research, you can find me cycling through scenic paths, playing Cricket with friends, or experimenting with new languages and skills to stay sharp.
+        <p class="text-gray-700 mt-2">
+          When I’m not working, you’ll likely find me cycling scenic routes, enjoying a game of cricket with friends, or honing new skills like building <span class="highlight">data-driven applications</span> with <span class="highlight">Power Apps</span>, optimizing <span class="highlight">BI solutions</span> with <span class="highlight">Snowflake</span> and <span class="highlight">Tableau</span>, or exploring innovative <span class="highlight">data architectures</span> to stay sharp and curious.
         </p>
       </div>
     </section>
   </div>
 
   <!-- Footer Section -->
-  <footer class="bg-gray-800 text-white text-center py-6 relative">
-    <p>&copy; 2025 Naveen Porwal | All rights reserved</p>
-    <a href="index.html" class="absolute top-6 right-6 text-green-400 hover:text-blue-800 transition-colors duration-300">Back to Homepage</a>
+  <footer class="bg-gray-800 text-white text-center py-4 relative">
+    <p class="text-sm">&copy; 2025 Naveen Porwal | All rights reserved</p>
+    <a href="index.html" class="absolute top-4 right-4 text-green-400 hover:text-blue-800 transition-colors duration-300 text-sm">Back to Homepage</a>
   </footer>
 
 </body>
