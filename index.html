@@ -10,17 +10,21 @@
       display: flex;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 14px; /* Compact base font size */
+      line-height: 1.4; /* Tighter line height */
+      background-color: #F5F5F5; /* Soft white background */
+      color: #2D3748; /* Dark slate text */
     }
 
     nav {
-      width: 160px; /* Further reduced width */
-      background-color: #333;
+      width: 140px; /* Compact width */
+      background-color: #2D3748; /* Dark slate */
       height: 100vh;
       position: fixed;
       top: 0;
       left: 0;
-      padding-top: 10px; /* Further reduced padding */
+      padding-top: 8px; /* Reduced padding */
       text-align: center;
     }
 
@@ -30,142 +34,173 @@
     }
 
     nav ul li {
-      margin: 6px 0; /* Reduced margin */
+      margin: 4px 0; /* Tighter margin */
     }
 
     nav ul li a {
-      color: white;
+      color: #F5F5F5; /* Soft white */
       text-decoration: none;
-      font-size: 12px; /* Further reduced font size */
+      font-size: 11px; /* Smaller font size for nav */
       display: block;
-      padding: 4px 8px; /* Reduced padding */
+      padding: 3px 6px; /* Reduced padding */
+      transition: background-color 0.3s ease;
     }
 
     nav ul li a:hover {
-      background-color: #575757;
-      border-radius: 5px;
+      background-color: #2B8A8A; /* Lighter teal for hover */
+      border-radius: 4px;
     }
 
     /* Content section */
     .content {
-      margin-left: 160px; /* Adjusted margin for reduced nav width */
-      padding: 10px 15px; /* Reduced padding */
-      width: calc(100% - 160px); /* Ensure content takes up the remaining width */
+      margin-left: 140px; /* Adjusted for nav width */
+      padding: 8px 12px; /* Reduced padding */
+      width: calc(100% - 140px); /* Remaining width */
+      background-color: #F5F5F5; /* Soft white */
     }
 
     header {
-      background-color: #A0C878;
-      color: white;
+      background-color: #1E6A6A; /* Deep teal */
+      color: #F5F5F5; /* Soft white */
       text-align: center;
-      padding: 8px; /* Reduced padding */
+      padding: 6px; /* Reduced padding */
+      border-radius: 6px; /* Subtle rounding */
     }
 
     header h1 {
-      margin: 5px 0; /* Reduced margin */
-      font-size: 18px; /* Reduced font size */
+      margin: 4px 0; /* Reduced margin */
+      font-size: 16px; /* Smaller font size */
+      font-weight: 700;
     }
 
     header p {
-      font-size: 14px; /* Reduced font size for description */
-      margin-top: 4px; /* Reduced margin */
+      font-size: 12px; /* Smaller font size */
+      margin-top: 3px; /* Reduced margin */
     }
 
     header img {
-      width: 120px; /* Adjust size of the photo */
-      height: 120px;
-      border-radius: 50%; /* To make the image circular */
-      margin-top: 5px; /* Reduced spacing above the photo */
+      width: 100px; /* Smaller profile photo */
+      height: 100px;
+      border-radius: 50%; /* Circular image */
+      margin-top: 4px; /* Reduced spacing */
+      border: 2px solid #FF6F61; /* Coral border for accent */
     }
 
     section {
-      padding: 8px 12px; /* Reduced padding */
-      margin-bottom: 8px; /* Reduced space between sections */
+      padding: 6px 10px; /* Reduced padding */
+      margin-bottom: 6px; /* Reduced space between sections */
+      background-color: #FFFFFF; /* White for section backgrounds */
+      border-radius: 6px; /* Subtle rounding */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Light shadow */
     }
 
     .bio, .contact, .projects, .hobbies {
-      margin-bottom: 8px; /* Reduced margin */
+      margin-bottom: 6px; /* Reduced margin */
     }
 
     h2 {
-      color: #A0C878;
-      font-size: 16px; /* Reduced font size */
-      margin-bottom: 6px; /* Reduced space after heading */
+      color: #1E6A6A; /* Deep teal */
+      font-size: 14px; /* Smaller font size */
+      font-weight: 700;
+      margin-bottom: 4px; /* Reduced space after heading */
     }
 
     footer {
       text-align: center;
-      padding: 4px; /* Reduced padding */
-      background-color: #333;
-      color: white;
-      margin-top: 10px; /* Reduced top margin */
+      padding: 3px; /* Reduced padding */
+      background-color: #2D3748; /* Dark slate */
+      color: #F5F5F5; /* Soft white */
+      margin-top: 8px; /* Reduced top margin */
+      border-radius: 6px; /* Subtle rounding */
     }
 
     a {
-      color: #A0C878;
+      color: #FF6F61; /* Coral for links */
       text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #2B8A8A; /* Lighter teal on hover */
     }
 
     .social-links a {
-      margin: 0 4px; /* Reduced spacing */
+      margin: 0 3px; /* Reduced spacing */
       text-decoration: none;
-      color: #A0C878;
+      color: #FF6F61; /* Coral */
+      font-size: 12px; /* Smaller font size */
     }
+
+    .social-links a:hover {
+      color: #2B8A8A; /* Lighter teal on hover */
+    }
+
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+      padding-left: 10px;
+    }
+
+    li {
+      margin-bottom: 4px; /* Reduced spacing */
+    }
+
     /* Responsive layout for smaller screens */
-@media (max-width: 600px) {
-  body {
-    flex-direction: column; /* Stack nav and content vertically */
-  }
+    @media (max-width: 600px) {
+      body {
+        flex-direction: column; /* Stack nav and content vertically */
+      }
 
-  nav {
-    position: relative;      /* Remove fixed positioning */
-    width: 100%;             /* Full width nav */
-    height: auto;            /* Adjust height */
-    padding: 0;
-    background-color: #333;
-  }
+      nav {
+        position: relative; /* Remove fixed positioning */
+        width: 100%; /* Full width nav */
+        height: auto; /* Adjust height */
+        padding: 0;
+        background-color: #2D3748; /* Dark slate */
+      }
 
-  nav ul {
-    display: flex;           /* Horizontal nav links */
-    justify-content: center; /* Center the links */
-    margin: 0;
-    padding: 0;
-  }
+      nav ul {
+        display: flex; /* Horizontal nav links */
+        justify-content: center; /* Center the links */
+        margin: 0;
+        padding: 0;
+      }
 
-  nav ul li {
-    margin: 0 10px;          /* Horizontal spacing */
-  }
+      nav ul li {
+        margin: 0 8px; /* Adjusted spacing */
+      }
 
-  nav ul li a {
-    font-size: 14px;         /* Slightly bigger for touch */
-    padding: 10px 15px;      /* Bigger tap area */
-  }
+      nav ul li a {
+        font-size: 12px; /* Slightly larger for touch */
+        padding: 8px 12px; /* Adjusted tap area */
+      }
 
-  .content {
-    margin-left: 0;          /* Remove left margin */
-    width: 100%;             /* Full width content */
-    padding: 15px 10px;      /* Slightly more padding */
-  }
+      .content {
+        margin-left: 0; /* Remove left margin */
+        width: 100%; /* Full width content */
+        padding: 10px 8px; /* Adjusted padding */
+      }
 
-  header img {
-    width: 100px;            /* Smaller profile picture */
-    height: 100px;
-    margin-top: 10px;
-  }
+      header img {
+        width: 80px; /* Smaller profile picture */
+        height: 80px;
+        margin-top: 8px;
+      }
 
-  header h1 {
-    font-size: 22px;         /* Adjust heading size */
-  }
+      header h1 {
+        font-size: 14px; /* Adjusted heading size */
+      }
 
-  header p {
-    font-size: 16px;
-  }
+      header p {
+        font-size: 11px; /* Smaller font size */
+      }
 
-  h2 {
-    font-size: 18px;         /* Slightly bigger section headings */
-  }
-}
-
+      h2 {
+        font-size: 13px; /* Adjusted section headings */
+      }
+    }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -177,7 +212,6 @@
       <li><a href="contact.html">Contact</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="Applications.html">Applications</a></li>
-      
     </ul>
   </nav>
 
