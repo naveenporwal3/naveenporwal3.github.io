@@ -22,9 +22,9 @@
       gap: 0.3rem;
       transition: all 0.3s ease;
     }
+    /* Updated back-button hover to use a Tailwind class in HTML instead of custom CSS */
     .back-button:hover {
       transform: scale(1.05);
-      background-color: #f472b6;
     }
     iframe {
       width: 100%;
@@ -40,7 +40,17 @@
   </header>
 
   <section class="portfolio w-full max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-4 space-y-4">
-    <!-- Tableau Dashboard -->
+    
+    <div class="portfolio-card p-3 bg-blue-50 rounded-lg border border-blue-200">
+      <h3 class="text-lg font-semibold text-gray-800">Food Delivery Website Prototype</h3>
+      <p class="text-gray-600 mt-1">A front-end development project showcasing a responsive design for a food delivery service.</p>
+      <a href="https://naveenporwal3.github.io/Food/"
+         target="_blank"
+         class="inline-block mt-2 px-3 py-1.5 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700 transition">
+        View Project Website
+      </a>
+    </div>
+    
     <div class="portfolio-card p-3 bg-teal-50 rounded-lg border border-teal-200">
       <h3 class="text-lg font-semibold text-gray-800">Tableau Dashboard – Superstore Assignment</h3>
       <p class="text-gray-600 mt-1">Explore an interactive Tableau dashboard showcasing superstore sales data.</p>
@@ -51,7 +61,6 @@
       </a>
     </div>
 
-    <!-- Calculator App -->
     <div class="portfolio-card p-3 bg-lime-50 rounded-lg border border-lime-200">
       <h3 class="text-lg font-semibold text-gray-800">Calculator App</h3>
       <p class="text-gray-600 mt-1">Try my Python-based calculator app built with Streamlit.</p>
@@ -62,7 +71,6 @@
       </a>
     </div>
 
-    <!-- Excel Cleaner App -->
     <div class="portfolio-card p-3 bg-yellow-50 rounded-lg border border-yellow-200">
       <h3 class="text-lg font-semibold text-gray-800">Excel Cleaner App</h3>
       <p class="text-gray-600 mt-1">Clean and preprocess Excel files easily using this Streamlit app.</p>
@@ -73,21 +81,19 @@
       </a>
     </div>
 
-    <!-- Zoho Dashboard -->
     <div class="portfolio-card p-3 bg-purple-50 rounded-lg border border-purple-200">
       <h3 class="text-lg font-semibold text-gray-800">Zoho Dashboard – Sales Overview</h3>
       <p class="text-gray-600 mt-1">View my embedded Zoho Analytics dashboard for sales insights.</p>
       <div class="overflow-x-auto mt-2">
-        <iframe 
-          frameborder="0" 
-          height="350" 
-          src="https://analytics.zoho.in/open-view/469651000000005228"
-          class="border border-purple-300">
+        <iframe title="Zoho Sales Overview Dashboard"
+           frameborder="0" 
+           height="350" 
+           src="https://analytics.zoho.in/open-view/469651000000005228"
+           class="border border-purple-300">
         </iframe>
       </div>
     </div>
 
-    <!-- Chatbot Section -->
     <div class="portfolio-card p-3 bg-teal-50 rounded-lg border border-teal-200">
       <h3 class="text-lg font-semibold text-gray-800">Ask Me About My Profile</h3>
       <p class="text-gray-600 mt-1">Type a question to learn more about my skills and projects.</p>
@@ -96,9 +102,8 @@
       <p id="botResponse" class="mt-2 text-gray-700 min-h-[20px] text-sm"></p>
     </div>
 
-    <!-- Back Button -->
     <div class="text-center pt-2">
-      <a href="index.html" class="back-button px-3 py-1.5 bg-pink-500 text-white text-sm rounded-md">
+      <a href="index.html" class="back-button px-3 py-1.5 bg-pink-500 text-white text-sm rounded-md hover:bg-pink-600">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
         </svg>
@@ -107,7 +112,6 @@
     </div>
   </section>
 
-  <!-- Chatbot Script -->
   <script>
     const qa = [
       {keywords: ["who", "you"], answer: "I am Naveen Porwal, a data analyst skilled in Python, Tableau, and data visualization."},
@@ -116,6 +120,7 @@
       {keywords: ["contact", "reach", "email", "phone"], answer: "You can reach me via the Contact page on my portfolio website."},
       {keywords: ["experience", "worked", "background"], answer: "I have experience working with data visualization, creating dashboards, and Python automation."},
       {keywords: ["project", "done", "work"], answer: "I have worked on Tableau dashboards, Python calculators, and various data analytics projects."},
+      {keywords: ["food", "delivery", "website"], answer: "My Food Delivery project is a front-end website prototype demonstrating HTML/CSS and responsive design skills."}, // New QA entry
       {keywords: ["help", "assist"], answer: "Try asking me about my skills, projects, experience, or how to contact me."}
     ];
 
