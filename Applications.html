@@ -5,10 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects Showcase | Naveen Porwal</title>
   
-  <!-- SEO -->
-  <meta name="description" content="AI-powered Streamlit apps by Naveen Porwal including document analysis and business intelligence tools." />
-  
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,87 +14,35 @@
       --primary: #6366f1;
       --secondary: #8b5cf6;
       --accent: #06b6d4;
-      --light: #f8fafc;
-      --dark: #0f172a;
     }
     
     body {
       background: linear-gradient(135deg, #f0f9ff 0%, #fdf2f8 50%, #f0fdf4 100%);
       font-family: 'Inter', sans-serif;
-      min-height: 100vh;
     }
     
     .glass-card {
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
     }
     
     .gradient-text {
       background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
     
     .project-card {
-      position: relative;
-      overflow: hidden;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       border-radius: 16px;
-    }
-    
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
     }
     
     .project-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
     }
-    
-    .shine-effect {
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .shine-effect::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.3) 50%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      transform: rotate(30deg);
-      transition: transform 0.6s;
-    }
-    
-    .shine-effect:hover::after {
-      transform: rotate(30deg) translate(20%, 20%);
-    }
-    
-    .floating {
-      animation: floating 3s ease-in-out infinite;
-    }
-    
-    @keyframes floating {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    
+
     .pulse {
       animation: pulse 2s infinite;
     }
@@ -108,40 +52,7 @@
       70% { box-shadow: 0 0 0 10px rgba(99, 102, 241, 0); }
       100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
     }
-    
-    .tech-tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      transition: all 0.3s;
-    }
-    
-    .tech-tag:hover {
-      transform: scale(1.05);
-    }
-    
-    .contact-icon {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      transition: all 0.3s;
-    }
-    
-    .contact-icon:hover {
-      transform: translateY(-3px);
-    }
-    
-    .divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
-    }
-    
+
     .blob {
       position: absolute;
       border-radius: 50%;
@@ -149,359 +60,102 @@
       opacity: 0.2;
       z-index: -1;
     }
+
+    /* Toast Notification Style */
+    #toast {
+      visibility: hidden;
+      min-width: 250px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      padding: 16px;
+      position: fixed;
+      z-index: 100;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+    }
+
+    #toast.show {
+      visibility: visible;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
+    @keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; } }
   </style>
 </head>
 
 <body class="min-h-screen flex flex-col items-center py-8 px-4 relative overflow-x-hidden">
   
-  <!-- Background blobs -->
+  <div id="toast">🚀 Opening App... Please wait.</div>
+
   <div class="blob top-10 left-10 w-72 h-72 bg-purple-400"></div>
   <div class="blob bottom-10 right-10 w-96 h-96 bg-cyan-400"></div>
-  <div class="blob top-1/3 right-1/4 w-64 h-64 bg-pink-300"></div>
   
-  <!-- Header -->
   <header class="w-full max-w-4xl mx-auto mb-12 text-center relative z-10">
     <div class="inline-flex items-center justify-center p-3 bg-white/80 rounded-2xl shadow-sm mb-6">
       <i class="fas fa-code text-2xl text-indigo-500 mr-3"></i>
       <h1 class="text-2xl font-bold text-gray-800">Projects Showcase</h1>
     </div>
-    
-    <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-      Innovating with AI & Data
-    </h2>
-    
-    <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-      Cutting-edge applications built with modern technologies to solve real-world problems
-    </p>
-    
-    <div class="flex justify-center mt-6">
-      <div class="w-24 h-1 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full"></div>
-    </div>
+    <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Innovating with AI & Data</h2>
   </header>
-  
-  <!-- Projects Grid -->
+
   <div class="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 px-4 relative z-10">
     
-    <!-- AI Document Assistant Card -->
-    <div class="project-card glass-card shine-effect">
-      <div class="p-8">
-        <div class="flex items-start justify-between mb-6">
-          <div>
-            <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-full mb-4">
-              <i class="fas fa-robot text-indigo-600 mr-2"></i>
-              <span class="text-sm font-semibold text-indigo-700">AI-Powered</span>
-            </div>
-            <h3 class="text-2xl font-bold text-gray-800 mb-2">Smart AI Document Assistant</h3>
-            <p class="text-gray-500">Intelligent document analysis with Gemini AI</p>
-          </div>
-          <div class="floating">
-            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
-              <i class="fas fa-file-alt text-white text-xl"></i>
-            </div>
-          </div>
-        </div>
-        
-        <div class="mb-6">
-          <img 
-            src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=200&crop=entropy&q=80"
-            alt="AI Document Assistant"
-            class="w-full h-48 object-cover rounded-xl shadow-md"
-          />
-        </div>
-        
-        <p class="text-gray-600 mb-6 leading-relaxed">
-          Advanced generative AI assistant that uses chunk-based context retrieval to analyze business PDFs, 
-          extract insights, and generate professional reports with intelligent recommendations.
-        </p>
-        
-        <div class="flex flex-wrap gap-3 mb-8">
-          <span class="tech-tag bg-blue-100 text-blue-700">
-            <i class="fas fa-brain mr-1"></i> GenAI
-          </span>
-          <span class="tech-tag bg-purple-100 text-purple-700">
-            <i class="fab fa-google mr-1"></i> Gemini
-          </span>
-          <span class="tech-tag bg-green-100 text-green-700">
-            <i class="fas fa-stream mr-1"></i> Streamlit
-          </span>
-          <span class="tech-tag bg-amber-100 text-amber-700">
-            <i class="fas fa-file-pdf mr-1"></i> PDF Analysis
-          </span>
-          <span class="tech-tag bg-rose-100 text-rose-700">
-            <i class="fas fa-bolt mr-1"></i> Real-time
-          </span>
-        </div>
-        
-        <div class="flex justify-between items-center">
-          <div class="text-sm text-gray-500">
-            <i class="fas fa-info-circle mr-1"></i> Free-tier with rate limits
-          </div>
-          <!-- FIXED: App Link with proper attributes -->
-          <a 
-            href="https://smart-document-assistant.streamlit.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="app-link px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-full hover:from-indigo-600 hover:to-purple-600 transition-all shadow-lg pulse flex items-center"
-            data-app="ai-document-assistant"
-          >
-            <i class="fas fa-rocket mr-2"></i> Launch App
-          </a>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Quiz App Card -->
-    <div class="project-card glass-card shine-effect">
-      <div class="p-8">
-        <div class="flex items-start justify-between mb-6">
-          <div>
-            <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-teal-100 to-emerald-100 rounded-full mb-4">
-              <i class="fas fa-gamepad text-teal-600 mr-2"></i>
-              <span class="text-sm font-semibold text-teal-700">Interactive</span>
-            </div>
-            <h3 class="text-2xl font-bold text-gray-800 mb-2">GK & Business Quiz App</h3>
-            <p class="text-gray-500">Knowledge testing platform for professionals</p>
-          </div>
-          <div class="floating">
-            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-500 flex items-center justify-center">
-              <i class="fas fa-question-circle text-white text-xl"></i>
-            </div>
-          </div>
-        </div>
-        
-        <div class="mb-6">
-          <img 
-            src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=200&crop=entropy&q=80"
-            alt="Quiz App"
-            class="w-full h-48 object-cover rounded-xl shadow-md"
-          />
-        </div>
-        
-        <p class="text-gray-600 mb-6 leading-relaxed">
-          Engaging quiz platform designed for business professionals and competitive exam aspirants. 
-          Features instant scoring, detailed feedback, and performance analytics to track progress.
-        </p>
-        
-        <div class="flex flex-wrap gap-3 mb-8">
-          <span class="tech-tag bg-teal-100 text-teal-700">
-            <i class="fab fa-python mr-1"></i> Python
-          </span>
-          <span class="tech-tag bg-green-100 text-green-700">
-            <i class="fas fa-stream mr-1"></i> Streamlit
-          </span>
-          <span class="tech-tag bg-blue-100 text-blue-700">
-            <i class="fas fa-database mr-1"></i> Database
-          </span>
-          <span class="tech-tag bg-amber-100 text-amber-700">
-            <i class="fas fa-chart-line mr-1"></i> Analytics
-          </span>
-          <span class="tech-tag bg-red-100 text-red-700">
-            <i class="fas fa-users mr-1"></i> Multi-user
-          </span>
-        </div>
-        
-        <div class="flex justify-between items-center">
-          <div class="text-sm text-gray-500">
-            <i class="fas fa-user-check mr-1"></i> Free to use
-          </div>
-          <!-- FIXED: App Link with proper attributes -->
-          <a 
-            href="https://app-business-quiz.streamlit.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="app-link px-6 py-3 bg-gradient-to-br from-teal-500 to-emerald-500 text-white font-semibold rounded-full hover:from-teal-600 hover:to-emerald-600 transition-all shadow-lg flex items-center"
-            data-app="quiz-app"
-          >
-            <i class="fas fa-play mr-2"></i> Start Quiz
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Stats Section -->
-  <div class="w-full max-w-4xl mx-auto mb-12 grid grid-cols-2 md:grid-cols-4 gap-6 relative z-10">
-    <div class="glass-card p-6 rounded-2xl text-center">
-      <div class="text-3xl font-bold text-indigo-600 mb-2">2+</div>
-      <div class="text-gray-600">Live Projects</div>
-    </div>
-    <div class="glass-card p-6 rounded-2xl text-center">
-      <div class="text-3xl font-bold text-purple-600 mb-2">10+</div>
-      <div class="text-gray-600">Technologies</div>
-    </div>
-    <div class="glass-card p-6 rounded-2xl text-center">
-      <div class="text-3xl font-bold text-teal-600 mb-2">24/7</div>
-      <div class="text-gray-600">Availability</div>
-    </div>
-    <div class="glass-card p-6 rounded-2xl text-center">
-      <div class="text-3xl font-bold text-rose-600 mb-2">100%</div>
-      <div class="text-gray-600">Satisfaction</div>
-    </div>
-  </div>
-  
-  <!-- Contact Section -->
-  <div class="w-full max-w-2xl mx-auto mb-12">
-    <div class="bg-white p-6 rounded-xl shadow-md">
-      
-      <div class="text-center mb-6">
-        <h3 class="text-xl font-bold text-gray-800 mb-1">Get In Touch</h3>
-        <p class="text-gray-600">Let's collaborate on your next project</p>
-      </div>
-      
-      <div class="space-y-4">
-        <div class="flex items-center p-3 border-b">
-          <div class="font-medium text-gray-700 w-20">Email:</div>
-          <a href="mailto:naveenporwal3@hotmail.com" class="text-blue-600 hover:underline">
-            naveenporwal3@hotmail.com
-          </a>
-        </div>
-        
-        <div class="flex items-center p-3 border-b">
-          <div class="font-medium text-gray-700 w-20">Phone:</div>
-          <a href="tel:+919250933584" class="text-green-600 hover:underline">
-            +91 9250 933 584
-          </a>
-        </div>
-        
-        <div class="flex items-center p-3">
-          <div class="font-medium text-gray-700 w-20">Location:</div>
-          <div class="text-gray-700">Electronic City, Bangalore</div>
-        </div>
-      </div>
-      
-      <div class="mt-6 pt-4 border-t text-center text-sm text-gray-600">
-        Available for freelance and collaboration opportunities
-      </div>
-      
-    </div>
-  </div>
-  
-  <!-- Copyright & Back -->
-  <div class="w-full max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 relative z-10 mb-8">
-    <div class="glass-card px-6 py-4 rounded-2xl w-full md:w-auto">
-      <div class="flex items-center">
-        <i class="fas fa-copyright text-gray-400 mr-3"></i>
+    <div class="project-card glass-card p-8">
+      <div class="flex items-start justify-between mb-6">
         <div>
-          <div class="font-semibold text-gray-700">© Naveen Porwal | 2026</div>
-          <div class="text-sm text-gray-500">All rights reserved</div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Smart AI Document Assistant</h3>
+          <p class="text-gray-500">Intelligent document analysis with Gemini AI</p>
         </div>
       </div>
+      <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&h=200" class="w-full h-48 object-cover rounded-xl mb-6 shadow-md" />
+      <div class="flex justify-between items-center mt-4">
+        <span class="text-sm text-gray-500"><i class="fas fa-info-circle mr-1"></i> Free-tier limits</span>
+        <a href="https://smart-document-assistant.streamlit.app/" target="_blank" rel="noopener noreferrer" class="app-link px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-full shadow-lg pulse">
+          Launch App
+        </a>
+      </div>
     </div>
-    
-    <a 
-      href="index.html"
-      class="px-8 py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold rounded-full hover:from-pink-600 hover:to-rose-600 transition-all shadow-lg flex items-center"
-    >
-      <i class="fas fa-arrow-left mr-2"></i> Back to Home
-    </a>
-  </div>
-  
-  <!-- Footer -->
-  <footer class="text-center text-gray-500 text-sm mt-4 relative z-10">
-    <p>Built with <i class="fas fa-heart text-rose-500 mx-1"></i> and modern web technologies</p>
-  </footer>
 
-  <!-- Link Debugging Modal -->
-  <div id="link-debug-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
-    <div class="bg-white rounded-xl p-6 max-w-md w-full">
-      <h3 class="text-lg font-bold text-gray-800 mb-4">Link Status</h3>
-      <div id="link-status" class="space-y-3 mb-6"></div>
-      <button onclick="closeDebugModal()" class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-        Close
-      </button>
+    <div class="project-card glass-card p-8">
+      <div class="flex items-start justify-between mb-6">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">GK & Business Quiz App</h3>
+          <p class="text-gray-500">Knowledge testing platform</p>
+        </div>
+      </div>
+      <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&h=200" class="w-full h-48 object-cover rounded-xl mb-6 shadow-md" />
+      <div class="flex justify-between items-center mt-4">
+        <span class="text-sm text-gray-500"><i class="fas fa-user-check mr-1"></i> Free to use</span>
+        <a href="https://app-business-quiz.streamlit.app/" target="_blank" rel="noopener noreferrer" class="app-link px-6 py-3 bg-gradient-to-br from-teal-500 to-emerald-500 text-white font-semibold rounded-full shadow-lg">
+          Start Quiz
+        </a>
+      </div>
     </div>
   </div>
-  
+
   <script>
-    // Add click tracking for app links
     document.addEventListener('DOMContentLoaded', function() {
       const appLinks = document.querySelectorAll('.app-link');
+      const toast = document.getElementById('toast');
       
       appLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-          const appName = this.getAttribute('data-app');
-          const appUrl = this.getAttribute('href');
-          
-          console.log(`Opening ${appName}: ${appUrl}`);
-          
-          // Check if the link might be blocked
-          const isSecure = appUrl.startsWith('https://');
-          console.log(`Secure link: ${isSecure}`);
-          
-          // Force open in new tab (redundant but ensures it works)
-          window.open(appUrl, '_blank', 'noopener,noreferrer');
+          // 1. Show a notification so the user knows something is happening
+          toast.className = "show";
+          setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
+
+          // 2. LOGGING (Optional)
+          console.log("Navigating to:", this.href);
+
+          // IMPORTANT: We do NOT use e.preventDefault() or window.open here.
+          // The HTML 'href' and 'target="_blank"' will handle the opening naturally.
         });
       });
-      
-      // Floating blobs animation
-      const blobs = document.querySelectorAll('.blob');
-      blobs.forEach((blob, index) => {
-        const duration = 20 + Math.random() * 10;
-        const delay = Math.random() * 5;
-        blob.style.animation = `move ${duration}s infinite ${delay}s alternate ease-in-out`;
-      });
-      
-      // Add style for blob movement
-      const style = document.createElement('style');
-      style.textContent = `
-        @keyframes move {
-          0% { transform: translate(0, 0) scale(1); }
-          33% { transform: translate(30px, -50px) scale(1.1); }
-          66% { transform: translate(-20px, 20px) scale(0.9); }
-          100% { transform: translate(0, 0) scale(1); }
-        }
-        
-        .app-link:hover {
-          transform: scale(1.05) !important;
-        }
-      `;
-      document.head.appendChild(style);
     });
-    
-    // Function to test links
-    function testLinks() {
-      const links = [
-        { name: 'AI Document Assistant', url: 'https://smart-document-assistant.streamlit.app/' },
-        { name: 'Quiz App', url: 'https://app-business-quiz.streamlit.app/' }
-      ];
-      
-      const statusDiv = document.getElementById('link-status');
-      statusDiv.innerHTML = '';
-      
-      links.forEach(link => {
-        const statusItem = document.createElement('div');
-        statusItem.className = 'flex items-center justify-between';
-        
-        const linkInfo = document.createElement('div');
-        linkInfo.innerHTML = `
-          <div class="font-medium">${link.name}</div>
-          <div class="text-sm text-gray-500 truncate">${link.url}</div>
-        `;
-        
-        const testBtn = document.createElement('button');
-        testBtn.className = 'px-3 py-1 bg-green-100 text-green-700 rounded text-sm hover:bg-green-200';
-        testBtn.textContent = 'Test';
-        testBtn.onclick = () => window.open(link.url, '_blank');
-        
-        statusItem.appendChild(linkInfo);
-        statusItem.appendChild(testBtn);
-        statusDiv.appendChild(statusItem);
-      });
-      
-      document.getElementById('link-debug-modal').classList.remove('hidden');
-    }
-    
-    function closeDebugModal() {
-      document.getElementById('link-debug-modal').classList.add('hidden');
-    }
-    
-    // Test button (you can remove this in production)
-    const testBtn = document.createElement('button');
-    testBtn.className = 'fixed bottom-4 right-4 bg-gray-800 text-white p-3 rounded-full shadow-lg z-40';
-    testBtn.innerHTML = '<i class="fas fa-bug"></i>';
-    testBtn.title = 'Test Links';
-    testBtn.onclick = testLinks;
-    document.body.appendChild(testBtn);
   </script>
 </body>
 </html>
