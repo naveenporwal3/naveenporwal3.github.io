@@ -236,11 +236,13 @@
           <div class="text-sm text-gray-500">
             <i class="fas fa-info-circle mr-1"></i> Free-tier with rate limits
           </div>
+          <!-- FIXED: App Link with proper attributes -->
           <a 
             href="https://smart-document-assistant.streamlit.app/"
             target="_blank"
             rel="noopener noreferrer"
-            class="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-full hover:from-indigo-600 hover:to-purple-600 transition-all shadow-lg pulse flex items-center"
+            class="app-link px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-full hover:from-indigo-600 hover:to-purple-600 transition-all shadow-lg pulse flex items-center"
+            data-app="ai-document-assistant"
           >
             <i class="fas fa-rocket mr-2"></i> Launch App
           </a>
@@ -302,11 +304,13 @@
           <div class="text-sm text-gray-500">
             <i class="fas fa-user-check mr-1"></i> Free to use
           </div>
+          <!-- FIXED: App Link with proper attributes -->
           <a 
             href="https://app-business-quiz.streamlit.app/"
             target="_blank"
             rel="noopener noreferrer"
-            class="px-6 py-3 bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-semibold rounded-full hover:from-teal-600 hover:to-emerald-600 transition-all shadow-lg flex items-center"
+            class="app-link px-6 py-3 bg-gradient-to-br from-teal-500 to-emerald-500 text-white font-semibold rounded-full hover:from-teal-600 hover:to-emerald-600 transition-all shadow-lg flex items-center"
+            data-app="quiz-app"
           >
             <i class="fas fa-play mr-2"></i> Start Quiz
           </a>
@@ -396,17 +400,44 @@
   <footer class="text-center text-gray-500 text-sm mt-4 relative z-10">
     <p>Built with <i class="fas fa-heart text-rose-500 mx-1"></i> and modern web technologies</p>
   </footer>
+
+  <!-- Link Debugging Modal -->
+  <div id="link-debug-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-xl p-6 max-w-md w-full">
+      <h3 class="text-lg font-bold text-gray-800 mb-4">Link Status</h3>
+      <div id="link-status" class="space-y-3 mb-6"></div>
+      <button onclick="closeDebugModal()" class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+        Close
+      </button>
+    </div>
+  </div>
   
   <script>
-    // Add floating animation to blobs
+    // Add click tracking for app links
     document.addEventListener('DOMContentLoaded', function() {
-      const blobs = document.querySelectorAll('.blob');
+      const appLinks = document.querySelectorAll('.app-link');
       
+      appLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const appName = this.getAttribute('data-app');
+          const appUrl = this.getAttribute('href');
+          
+          console.log(`Opening ${appName}: ${appUrl}`);
+          
+          // Check if the link might be blocked
+          const isSecure = appUrl.startsWith('https://');
+          console.log(`Secure link: ${isSecure}`);
+          
+          // Force open in new tab (redundant but ensures it works)
+          window.open(appUrl, '_blank', 'noopener,noreferrer');
+        });
+      });
+      
+      // Floating blobs animation
+      const blobs = document.querySelectorAll('.blob');
       blobs.forEach((blob, index) => {
-        // Randomize animation
         const duration = 20 + Math.random() * 10;
         const delay = Math.random() * 5;
-        
         blob.style.animation = `move ${duration}s infinite ${delay}s alternate ease-in-out`;
       });
       
@@ -419,19 +450,58 @@
           66% { transform: translate(-20px, 20px) scale(0.9); }
           100% { transform: translate(0, 0) scale(1); }
         }
+        
+        .app-link:hover {
+          transform: scale(1.05) !important;
+        }
       `;
       document.head.appendChild(style);
-      
-      // Add subtle parallax effect
-      document.addEventListener('mousemove', (e) => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 20;
-        const y = (e.clientY / window.innerHeight - 0.5) * 20;
-        
-        document.querySelectorAll('.floating').forEach(el => {
-          el.style.transform = `translate(${x}px, ${y}px)`;
-        });
-      });
     });
+    
+    // Function to test links
+    function testLinks() {
+      const links = [
+        { name: 'AI Document Assistant', url: 'https://smart-document-assistant.streamlit.app/' },
+        { name: 'Quiz App', url: 'https://app-business-quiz.streamlit.app/' }
+      ];
+      
+      const statusDiv = document.getElementById('link-status');
+      statusDiv.innerHTML = '';
+      
+      links.forEach(link => {
+        const statusItem = document.createElement('div');
+        statusItem.className = 'flex items-center justify-between';
+        
+        const linkInfo = document.createElement('div');
+        linkInfo.innerHTML = `
+          <div class="font-medium">${link.name}</div>
+          <div class="text-sm text-gray-500 truncate">${link.url}</div>
+        `;
+        
+        const testBtn = document.createElement('button');
+        testBtn.className = 'px-3 py-1 bg-green-100 text-green-700 rounded text-sm hover:bg-green-200';
+        testBtn.textContent = 'Test';
+        testBtn.onclick = () => window.open(link.url, '_blank');
+        
+        statusItem.appendChild(linkInfo);
+        statusItem.appendChild(testBtn);
+        statusDiv.appendChild(statusItem);
+      });
+      
+      document.getElementById('link-debug-modal').classList.remove('hidden');
+    }
+    
+    function closeDebugModal() {
+      document.getElementById('link-debug-modal').classList.add('hidden');
+    }
+    
+    // Test button (you can remove this in production)
+    const testBtn = document.createElement('button');
+    testBtn.className = 'fixed bottom-4 right-4 bg-gray-800 text-white p-3 rounded-full shadow-lg z-40';
+    testBtn.innerHTML = '<i class="fas fa-bug"></i>';
+    testBtn.title = 'Test Links';
+    testBtn.onclick = testLinks;
+    document.body.appendChild(testBtn);
   </script>
 </body>
 </html>
