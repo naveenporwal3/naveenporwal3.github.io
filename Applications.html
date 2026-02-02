@@ -3,187 +3,459 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Projects & Apps | Naveen Porwal</title>
-
+  <title>Projects Showcase | Naveen Porwal</title>
+  
   <!-- SEO -->
   <meta name="description" content="AI-powered Streamlit apps by Naveen Porwal including document analysis and business intelligence tools." />
-
+  
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
+    :root {
+      --primary: #6366f1;
+      --secondary: #8b5cf6;
+      --accent: #06b6d4;
+      --light: #f8fafc;
+      --dark: #0f172a;
+    }
+    
     body {
-      background: linear-gradient(135deg, #e6fffa 0%, #ffffff 100%);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f9ff 0%, #fdf2f8 50%, #f0fdf4 100%);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
     }
-
-    .project-card, .info-section, .contact-section {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
     }
-
-    .project-card:hover, .info-section:hover, .contact-section:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(43, 108, 176, 0.3);
+    
+    .gradient-text {
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-
-    .back-button {
+    
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 16px;
+    }
+    
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+    
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+    }
+    
+    .shine-effect {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .shine-effect::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(30deg);
+      transition: transform 0.6s;
+    }
+    
+    .shine-effect:hover::after {
+      transform: rotate(30deg) translate(20%, 20%);
+    }
+    
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(99, 102, 241, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+    }
+    
+    .tech-tag {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      transition: all 0.3s ease;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      transition: all 0.3s;
     }
-
-    .back-button:hover {
+    
+    .tech-tag:hover {
       transform: scale(1.05);
-      background-color: #f472b6;
     }
-
-    .project-image {
-      width: 100%;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 5px;
-      border: 1px solid #cbd5e0;
+    
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      transition: all 0.3s;
+    }
+    
+    .contact-icon:hover {
+      transform: translateY(-3px);
+    }
+    
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+    }
+    
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: 0.2;
+      z-index: -1;
     }
   </style>
 </head>
 
-<body class="min-h-screen flex flex-col items-center py-6 px-4">
-
+<body class="min-h-screen flex flex-col items-center py-8 px-4 relative overflow-x-hidden">
+  
+  <!-- Background blobs -->
+  <div class="blob top-10 left-10 w-72 h-72 bg-purple-400"></div>
+  <div class="blob bottom-10 right-10 w-96 h-96 bg-cyan-400"></div>
+  <div class="blob top-1/3 right-1/4 w-64 h-64 bg-pink-300"></div>
+  
   <!-- Header -->
-  <header class="w-full max-w-[600px] mx-auto mb-4">
-    <h1 class="text-2xl font-bold text-gray-800 text-center uppercase tracking-tight">
-      My Projects & Apps
-    </h1>
-    <p class="text-teal-600 text-center mt-1 text-sm">
-      Data Science & Generative AI Solutions by Naveen Porwal
+  <header class="w-full max-w-4xl mx-auto mb-12 text-center relative z-10">
+    <div class="inline-flex items-center justify-center p-3 bg-white/80 rounded-2xl shadow-sm mb-6">
+      <i class="fas fa-code text-2xl text-indigo-500 mr-3"></i>
+      <h1 class="text-2xl font-bold text-gray-800">Projects Showcase</h1>
+    </div>
+    
+    <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+      Innovating with AI & Data
+    </h2>
+    
+    <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+      Cutting-edge applications built with modern technologies to solve real-world problems
     </p>
+    
+    <div class="flex justify-center mt-6">
+      <div class="w-24 h-1 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full"></div>
+    </div>
   </header>
-
-  <!-- Projects -->
-  <div class="projects-container w-full max-w-[600px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-
-    <!-- Smart AI Document Assistant -->
-    <div class="project-card p-3 bg-blue-50 rounded-[5px] border border-blue-200 shadow-sm">
-      <img
-  src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=100&crop=entropy&q=80"
-  alt="AI Document Assistant analyzing documents"
-  class="project-image mb-2"
-/>
-
-      <h2 class="text-[1rem] font-bold text-gray-800 mb-1">
-        Smart AI Document Assistant
-      </h2>
-
-      <p class="text-gray-600 text-[0.8rem] mb-3 leading-relaxed">
-        Generative AI document assistant using chunk-based context retrieval to analyze
-        business PDFs and generate professional insights.
-      </p>
-
-      <div class="flex flex-wrap gap-2 mb-3">
-        <span class="text-[0.65rem] bg-blue-200 text-blue-800 px-2 py-1 rounded-full">GenAI</span>
-        <span class="text-[0.65rem] bg-purple-200 text-purple-800 px-2 py-1 rounded-full">Gemini</span>
-        <span class="text-[0.65rem] bg-green-200 text-green-800 px-2 py-1 rounded-full">Streamlit</span>
-        <span class="text-[0.65rem] bg-yellow-200 text-yellow-800 px-2 py-1 rounded-full">
-          Demo Limited
-        </span>
-      </div>
-
-      <div class="text-center space-y-2">
-        <a
-          href="https://smart-document-assistant.streamlit.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Free-tier Gemini API with rate limits"
-          class="inline-block px-4 py-2 bg-blue-600 text-white text-[0.75rem] font-bold rounded-full hover:bg-blue-700 transition"
-        >
-          Launch AI App
-        </a>
-      </div>
-    </div>
-
-    <!-- GK & Business Quiz App -->
-    <div class="project-card p-3 bg-teal-50 rounded-[5px] border border-teal-200 shadow-sm">
-      <img
-        src="https://static.streamlit.io/examples/dice.jpg"
-        alt="Quiz App"
-        class="project-image mb-2"
-      />
-
-      <h2 class="text-[1rem] font-bold text-gray-800 mb-1">
-        GK & Business Quiz App
-      </h2>
-
-      <p class="text-gray-600 text-[0.8rem] mb-3 leading-relaxed">
-        Interactive quiz application designed for business knowledge and competitive exam
-        preparation with instant scoring and feedback.
-      </p>
-
-      <div class="flex flex-wrap gap-2 mb-3">
-        <span class="text-[0.65rem] bg-teal-200 text-teal-800 px-2 py-1 rounded-full">Python</span>
-        <span class="text-[0.65rem] bg-green-200 text-green-800 px-2 py-1 rounded-full">Streamlit</span>
-      </div>
-
-      <div class="text-center">
-        <a
-          href="https://app-business-quiz.streamlit.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-block px-4 py-2 bg-teal-600 text-white text-[0.75rem] font-bold rounded-full hover:bg-teal-700 transition"
-        >
-          Launch Quiz App
-        </a>
+  
+  <!-- Projects Grid -->
+  <div class="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 px-4 relative z-10">
+    
+    <!-- AI Document Assistant Card -->
+    <div class="project-card glass-card shine-effect">
+      <div class="p-8">
+        <div class="flex items-start justify-between mb-6">
+          <div>
+            <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-full mb-4">
+              <i class="fas fa-robot text-indigo-600 mr-2"></i>
+              <span class="text-sm font-semibold text-indigo-700">AI-Powered</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Smart AI Document Assistant</h3>
+            <p class="text-gray-500">Intelligent document analysis with Gemini AI</p>
+          </div>
+          <div class="floating">
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
+              <i class="fas fa-file-alt text-white text-xl"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mb-6">
+          <img 
+            src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=200&crop=entropy&q=80"
+            alt="AI Document Assistant"
+            class="w-full h-48 object-cover rounded-xl shadow-md"
+          />
+        </div>
+        
+        <p class="text-gray-600 mb-6 leading-relaxed">
+          Advanced generative AI assistant that uses chunk-based context retrieval to analyze business PDFs, 
+          extract insights, and generate professional reports with intelligent recommendations.
+        </p>
+        
+        <div class="flex flex-wrap gap-3 mb-8">
+          <span class="tech-tag bg-blue-100 text-blue-700">
+            <i class="fas fa-brain mr-1"></i> GenAI
+          </span>
+          <span class="tech-tag bg-purple-100 text-purple-700">
+            <i class="fab fa-google mr-1"></i> Gemini
+          </span>
+          <span class="tech-tag bg-green-100 text-green-700">
+            <i class="fas fa-stream mr-1"></i> Streamlit
+          </span>
+          <span class="tech-tag bg-amber-100 text-amber-700">
+            <i class="fas fa-file-pdf mr-1"></i> PDF Analysis
+          </span>
+          <span class="tech-tag bg-rose-100 text-rose-700">
+            <i class="fas fa-bolt mr-1"></i> Real-time
+          </span>
+        </div>
+        
+        <div class="flex justify-between items-center">
+          <div class="text-sm text-gray-500">
+            <i class="fas fa-info-circle mr-1"></i> Free-tier with rate limits
+          </div>
+          <a 
+            href="https://smart-document-assistant.streamlit.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-full hover:from-indigo-600 hover:to-purple-600 transition-all shadow-lg pulse flex items-center"
+          >
+            <i class="fas fa-rocket mr-2"></i> Launch App
+          </a>
+        </div>
       </div>
     </div>
-
+    
+    <!-- Quiz App Card -->
+    <div class="project-card glass-card shine-effect">
+      <div class="p-8">
+        <div class="flex items-start justify-between mb-6">
+          <div>
+            <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-teal-100 to-emerald-100 rounded-full mb-4">
+              <i class="fas fa-gamepad text-teal-600 mr-2"></i>
+              <span class="text-sm font-semibold text-teal-700">Interactive</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">GK & Business Quiz App</h3>
+            <p class="text-gray-500">Knowledge testing platform for professionals</p>
+          </div>
+          <div class="floating">
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-500 flex items-center justify-center">
+              <i class="fas fa-question-circle text-white text-xl"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mb-6">
+          <img 
+            src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=200&crop=entropy&q=80"
+            alt="Quiz App"
+            class="w-full h-48 object-cover rounded-xl shadow-md"
+          />
+        </div>
+        
+        <p class="text-gray-600 mb-6 leading-relaxed">
+          Engaging quiz platform designed for business professionals and competitive exam aspirants. 
+          Features instant scoring, detailed feedback, and performance analytics to track progress.
+        </p>
+        
+        <div class="flex flex-wrap gap-3 mb-8">
+          <span class="tech-tag bg-teal-100 text-teal-700">
+            <i class="fab fa-python mr-1"></i> Python
+          </span>
+          <span class="tech-tag bg-green-100 text-green-700">
+            <i class="fas fa-stream mr-1"></i> Streamlit
+          </span>
+          <span class="tech-tag bg-blue-100 text-blue-700">
+            <i class="fas fa-database mr-1"></i> Database
+          </span>
+          <span class="tech-tag bg-amber-100 text-amber-700">
+            <i class="fas fa-chart-line mr-1"></i> Analytics
+          </span>
+          <span class="tech-tag bg-red-100 text-red-700">
+            <i class="fas fa-users mr-1"></i> Multi-user
+          </span>
+        </div>
+        
+        <div class="flex justify-between items-center">
+          <div class="text-sm text-gray-500">
+            <i class="fas fa-user-check mr-1"></i> Free to use
+          </div>
+          <a 
+            href="https://app-business-quiz.streamlit.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-6 py-3 bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-semibold rounded-full hover:from-teal-600 hover:to-emerald-600 transition-all shadow-lg flex items-center"
+          >
+            <i class="fas fa-play mr-2"></i> Start Quiz
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <!-- Copyright -->
-  <section class="info-section w-full max-w-[600px] mx-auto p-3 bg-lime-50 rounded-[5px] border border-lime-200 mb-4">
-    <h2 class="text-[0.9rem] font-bold text-gray-800 border-b border-lime-300 pb-1 mb-2">
-      Copyright Notice
-    </h2>
-    <p class="text-gray-600 text-[0.8rem] leading-relaxed">
-      © Naveen Porwal | 2026. All rights reserved.
-      Unauthorized copying, distribution, or reuse of any content without permission is prohibited.
-    </p>
-  </section>
-
-  <!-- Contact -->
-  <section class="contact-section w-full max-w-[600px] mx-auto p-4 bg-gradient-to-r from-teal-600 to-teal-800 text-white rounded-[5px] mb-6">
-    <h2 class="text-[1rem] font-bold border-b border-teal-400 pb-1 mb-3">
-      Get In Touch
-    </h2>
-
-    <div class="text-[0.85rem] space-y-1">
-      <p><strong>Email:</strong>
-        <a href="mailto:naveenporwal3@hotmail.com" class="text-yellow-200 hover:underline">
-          naveenporwal3@hotmail.com
-        </a>
-      </p>
-
-      <p><strong>Phone:</strong>
-        <a href="tel:+919250933584" class="text-yellow-200 hover:underline">
-          +91 9250 933 584
-        </a>
-      </p>
-
-      <p><strong>Location:</strong> Electronic City, Bangalore, India</p>
+  
+  <!-- Stats Section -->
+  <div class="w-full max-w-4xl mx-auto mb-12 grid grid-cols-2 md:grid-cols-4 gap-6 relative z-10">
+    <div class="glass-card p-6 rounded-2xl text-center">
+      <div class="text-3xl font-bold text-indigo-600 mb-2">2+</div>
+      <div class="text-gray-600">Live Projects</div>
     </div>
-  </section>
-
-  <!-- Back -->
-  <div class="text-center">
-    <a
+    <div class="glass-card p-6 rounded-2xl text-center">
+      <div class="text-3xl font-bold text-purple-600 mb-2">10+</div>
+      <div class="text-gray-600">Technologies</div>
+    </div>
+    <div class="glass-card p-6 rounded-2xl text-center">
+      <div class="text-3xl font-bold text-teal-600 mb-2">24/7</div>
+      <div class="text-gray-600">Availability</div>
+    </div>
+    <div class="glass-card p-6 rounded-2xl text-center">
+      <div class="text-3xl font-bold text-rose-600 mb-2">100%</div>
+      <div class="text-gray-600">Satisfaction</div>
+    </div>
+  </div>
+  
+  <!-- Contact Section -->
+  <div class="w-full max-w-4xl mx-auto mb-12 relative z-10">
+    <div class="glass-card p-8 rounded-3xl">
+      <div class="text-center mb-8">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">Get In Touch</h3>
+        <p class="text-gray-600">Let's collaborate on your next project</p>
+        <div class="flex justify-center mt-4">
+          <div class="w-16 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full"></div>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="mailto:naveenporwal3@hotmail.com" class="contact-icon bg-gradient-to-br from-blue-50 to-indigo-50 text-blue-600 border border-blue-100">
+          <div class="text-center">
+            <i class="fas fa-envelope text-2xl mb-2"></i>
+            <div class="font-semibold">Email</div>
+            <div class="text-sm text-gray-600 mt-1">naveenporwal3@hotmail.com</div>
+          </div>
+        </a>
+        
+        <a href="tel:+919250933584" class="contact-icon bg-gradient-to-br from-emerald-50 to-teal-50 text-emerald-600 border border-emerald-100">
+          <div class="text-center">
+            <i class="fas fa-phone-alt text-2xl mb-2"></i>
+            <div class="font-semibold">Phone</div>
+            <div class="text-sm text-gray-600 mt-1">+91 9250 933 584</div>
+          </div>
+        </a>
+        
+        <div class="contact-icon bg-gradient-to-br from-amber-50 to-orange-50 text-amber-600 border border-amber-100">
+          <div class="text-center">
+            <i class="fas fa-map-marker-alt text-2xl mb-2"></i>
+            <div class="font-semibold">Location</div>
+            <div class="text-sm text-gray-600 mt-1">Electronic City, Bangalore</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="divider my-8"></div>
+      
+      <div class="text-center">
+        <p class="text-gray-600 mb-6">
+          Open for freelance projects, consulting, and collaboration opportunities in AI, Data Science, and Web Development.
+        </p>
+        <div class="flex justify-center space-x-6">
+          <a href="#" class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center hover:bg-indigo-200 transition">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center hover:bg-blue-200 transition">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center hover:bg-gray-200 transition">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center hover:bg-red-200 transition">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Copyright & Back -->
+  <div class="w-full max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 relative z-10 mb-8">
+    <div class="glass-card px-6 py-4 rounded-2xl w-full md:w-auto">
+      <div class="flex items-center">
+        <i class="fas fa-copyright text-gray-400 mr-3"></i>
+        <div>
+          <div class="font-semibold text-gray-700">© Naveen Porwal | 2026</div>
+          <div class="text-sm text-gray-500">All rights reserved</div>
+        </div>
+      </div>
+    </div>
+    
+    <a 
       href="index.html"
-      class="back-button px-5 py-2 bg-pink-500 text-white font-bold rounded-full shadow-md"
+      class="px-8 py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold rounded-full hover:from-pink-600 hover:to-rose-600 transition-all shadow-lg flex items-center"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-      </svg>
-      Back to Home
+      <i class="fas fa-arrow-left mr-2"></i> Back to Home
     </a>
   </div>
-
+  
+  <!-- Footer -->
+  <footer class="text-center text-gray-500 text-sm mt-4 relative z-10">
+    <p>Built with <i class="fas fa-heart text-rose-500 mx-1"></i> and modern web technologies</p>
+  </footer>
+  
+  <script>
+    // Add floating animation to blobs
+    document.addEventListener('DOMContentLoaded', function() {
+      const blobs = document.querySelectorAll('.blob');
+      
+      blobs.forEach((blob, index) => {
+        // Randomize animation
+        const duration = 20 + Math.random() * 10;
+        const delay = Math.random() * 5;
+        
+        blob.style.animation = `move ${duration}s infinite ${delay}s alternate ease-in-out`;
+      });
+      
+      // Add style for blob movement
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes move {
+          0% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(30px, -50px) scale(1.1); }
+          66% { transform: translate(-20px, 20px) scale(0.9); }
+          100% { transform: translate(0, 0) scale(1); }
+        }
+      `;
+      document.head.appendChild(style);
+      
+      // Add subtle parallax effect
+      document.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 20;
+        const y = (e.clientY / window.innerHeight - 0.5) * 20;
+        
+        document.querySelectorAll('.floating').forEach(el => {
+          el.style.transform = `translate(${x}px, ${y}px)`;
+        });
+      });
+    });
+  </script>
 </body>
 </html>
