@@ -3,159 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects Showcase | Naveen Porwal</title>
-  
+  <title>Projects | Naveen Porwal</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
   <style>
-    :root {
-      --primary: #6366f1;
-      --secondary: #8b5cf6;
-      --accent: #06b6d4;
-    }
-    
-    body {
-      background: linear-gradient(135deg, #f0f9ff 0%, #fdf2f8 50%, #f0fdf4 100%);
-      font-family: 'Inter', sans-serif;
-    }
-    
-    .glass-card {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .gradient-text {
-      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    
-    .project-card {
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      border-radius: 16px;
-    }
-    
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
-    }
-
-    .pulse {
-      animation: pulse 2s infinite;
-    }
-    
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
-      70% { box-shadow: 0 0 0 10px rgba(99, 102, 241, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
-    }
-
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(40px);
-      opacity: 0.2;
-      z-index: -1;
-    }
-
-    /* Toast Notification Style */
-    #toast {
-      visibility: hidden;
-      min-width: 250px;
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      border-radius: 8px;
-      padding: 16px;
-      position: fixed;
-      z-index: 100;
-      left: 50%;
-      bottom: 30px;
-      transform: translateX(-50%);
-    }
-
-    #toast.show {
-      visibility: visible;
-      animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    }
-
-    @keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
-    @keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; } }
+    body { background-color: #f8fafc; font-family: 'Segoe UI', sans-serif; }
+    .card { transition: transform 0.2s; border: 1px solid #e2e8f0; }
+    .card:hover { transform: translateY(-5px); }
   </style>
 </head>
+<body class="p-6 md:p-12">
 
-<body class="min-h-screen flex flex-col items-center py-8 px-4 relative overflow-x-hidden">
-  
-  <div id="toast">🚀 Opening App... Please wait.</div>
-
-  <div class="blob top-10 left-10 w-72 h-72 bg-purple-400"></div>
-  <div class="blob bottom-10 right-10 w-96 h-96 bg-cyan-400"></div>
-  
-  <header class="w-full max-w-4xl mx-auto mb-12 text-center relative z-10">
-    <div class="inline-flex items-center justify-center p-3 bg-white/80 rounded-2xl shadow-sm mb-6">
-      <i class="fas fa-code text-2xl text-indigo-500 mr-3"></i>
-      <h1 class="text-2xl font-bold text-gray-800">Projects Showcase</h1>
-    </div>
-    <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Innovating with AI & Data</h2>
+  <header class="max-w-4xl mx-auto text-center mb-12">
+    <h1 class="text-4xl font-bold text-slate-800 mb-2">Project Showcase</h1>
+    <p class="text-slate-600">Direct access to my live Streamlit applications.</p>
   </header>
 
-  <div class="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 px-4 relative z-10">
-    
-    <div class="project-card glass-card p-8">
-      <div class="flex items-start justify-between mb-6">
-        <div>
-          <h3 class="text-2xl font-bold text-gray-800 mb-2">Smart AI Document Assistant</h3>
-          <p class="text-gray-500">Intelligent document analysis with Gemini AI</p>
-        </div>
-      </div>
-      <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&h=200" class="w-full h-48 object-cover rounded-xl mb-6 shadow-md" />
-      <div class="flex justify-between items-center mt-4">
-        <span class="text-sm text-gray-500"><i class="fas fa-info-circle mr-1"></i> Free-tier limits</span>
-        <a href="https://smart-document-assistant.streamlit.app/" target="_blank" rel="noopener noreferrer" class="app-link px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-full shadow-lg pulse">
-          Launch App
-        </a>
-      </div>
-    </div>
+  <main class="max-w-5xl mx-auto grid gap-8 md:grid-cols-2">
 
-    <div class="project-card glass-card p-8">
-      <div class="flex items-start justify-between mb-6">
-        <div>
-          <h3 class="text-2xl font-bold text-gray-800 mb-2">GK & Business Quiz App</h3>
-          <p class="text-gray-500">Knowledge testing platform</p>
-        </div>
-      </div>
-      <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&h=200" class="w-full h-48 object-cover rounded-xl mb-6 shadow-md" />
-      <div class="flex justify-between items-center mt-4">
-        <span class="text-sm text-gray-500"><i class="fas fa-user-check mr-1"></i> Free to use</span>
-        <a href="https://app-business-quiz.streamlit.app/" target="_blank" rel="noopener noreferrer" class="app-link px-6 py-3 bg-gradient-to-br from-teal-500 to-emerald-500 text-white font-semibold rounded-full shadow-lg">
-          Start Quiz
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const appLinks = document.querySelectorAll('.app-link');
-      const toast = document.getElementById('toast');
+    <section class="card bg-white p-6 rounded-xl shadow-sm">
+      <h2 class="text-xl font-bold text-slate-800 mb-2">Smart AI Document Assistant</h2>
+      <p class="text-slate-600 mb-6 text-sm">Analyze PDFs and extract insights using Gemini AI.</p>
       
-      appLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-          // 1. Show a notification so the user knows something is happening
-          toast.className = "show";
-          setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
+      <a href="https://smart-document-assistant.streamlit.app/" 
+         target="_blank" 
+         class="inline-block w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition">
+        Open Application <i class="fas fa-external-link-alt ml-1"></i>
+      </a>
+    </section>
 
-          // 2. LOGGING (Optional)
-          console.log("Navigating to:", this.href);
+    <section class="card bg-white p-6 rounded-xl shadow-sm">
+      <h2 class="text-xl font-bold text-slate-800 mb-2">GK & Business Quiz App</h2>
+      <p class="text-slate-600 mb-6 text-sm">Interactive platform for professional knowledge testing.</p>
+      
+      <a href="https://app-business-quiz.streamlit.app/" 
+         target="_blank" 
+         class="inline-block w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-lg transition">
+        Open Application <i class="fas fa-external-link-alt ml-1"></i>
+      </a>
+    </section>
 
-          // IMPORTANT: We do NOT use e.preventDefault() or window.open here.
-          // The HTML 'href' and 'target="_blank"' will handle the opening naturally.
-        });
-      });
-    });
-  </script>
+  </main>
+
+  <footer class="max-w-4xl mx-auto mt-16 pt-8 border-t text-center text-slate-500 text-sm">
+    <p>Naveen Porwal | Electronic City, Bangalore</p>
+    <p class="mt-2">Email: naveenporwal3@hotmail.com</p>
+  </footer>
+
 </body>
 </html>
