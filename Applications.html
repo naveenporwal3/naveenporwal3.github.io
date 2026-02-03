@@ -4,49 +4,117 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Naveen Porwal</title>
+  
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
-    body { background-color: #f8fafc; font-family: 'Segoe UI', sans-serif; }
-    .card { transition: transform 0.2s; border: 1px solid #e2e8f0; }
-    .card:hover { transform: translateY(-5px); }
+    body { 
+      background: radial-gradient(circle at top right, #fdf2f8, transparent),
+                  radial-gradient(circle at bottom left, #e0f2fe, transparent),
+                  #f8fafc;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .btn-shadow {
+      box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.3);
+    }
   </style>
 </head>
 <body class="p-6 md:p-12">
 
-  <header class="max-w-4xl mx-auto text-center mb-12">
-    <h1 class="text-4xl font-bold text-slate-800 mb-2">Project Showcase</h1>
-    <p class="text-slate-600">Direct access to my live Streamlit applications.</p>
+  <header class="max-w-4xl mx-auto text-center mb-16">
+    <div class="inline-block px-4 py-1.5 mb-4 text-sm font-semibold tracking-wide text-indigo-600 uppercase bg-indigo-50 rounded-full">
+      Portfolio 2026
+    </div>
+    <h1 class="text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
+      Project <span class="gradient-text">Showcase</span>
+    </h1>
+    <p class="text-lg text-slate-600 max-w-xl mx-auto leading-relaxed">
+      A collection of AI-driven tools and interactive platforms built by <strong>Naveen Porwal</strong>.
+    </p>
   </header>
 
   <main class="max-w-5xl mx-auto grid gap-8 md:grid-cols-2">
 
-    <section class="card bg-white p-6 rounded-xl shadow-sm">
-      <h2 class="text-xl font-bold text-slate-800 mb-2">Smart AI Document Assistant</h2>
-      <p class="text-slate-600 mb-6 text-sm">Analyze PDFs and extract insights using Gemini AI.</p>
+    <section class="glass-card p-8 rounded-3xl relative overflow-hidden group">
+      <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+        <i class="fas fa-file-pdf text-6xl"></i>
+      </div>
       
-      <a href="https://smart-document-assistant.streamlit.app/" 
-         target="_blank" 
-         class="inline-block w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition">
-        Open Application <i class="fas fa-external-link-alt ml-1"></i>
-      </a>
+      <div class="relative z-10">
+        <div class="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-indigo-200">
+          <i class="fas fa-robot text-white text-xl"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-800 mb-3">Smart AI Document Assistant</h2>
+        <p class="text-slate-600 mb-8 leading-relaxed">
+          Leverage Gemini AI to analyze complex business PDFs, extract key insights, and generate automated summaries in real-time.
+        </p>
+        
+        <a href="https://smart-document-assistant.streamlit.app/" 
+           target="_blank" 
+           class="btn-shadow flex items-center justify-center w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl transition-all active:scale-95">
+          Launch App <i class="fas fa-arrow-right ml-2 text-sm"></i>
+        </a>
+      </div>
     </section>
 
-    <section class="card bg-white p-6 rounded-xl shadow-sm">
-      <h2 class="text-xl font-bold text-slate-800 mb-2">GK & Business Quiz App</h2>
-      <p class="text-slate-600 mb-6 text-sm">Interactive platform for professional knowledge testing.</p>
-      
-      <a href="https://app-business-quiz.streamlit.app/" 
-         target="_blank" 
-         class="inline-block w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-lg transition">
-        Open Application <i class="fas fa-external-link-alt ml-1"></i>
-      </a>
+    <section class="glass-card p-8 rounded-3xl relative overflow-hidden group">
+      <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+        <i class="fas fa-lightbulb text-6xl"></i>
+      </div>
+
+      <div class="relative z-10">
+        <div class="w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-emerald-200">
+          <i class="fas fa-graduation-cap text-white text-xl"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-800 mb-3">GK & Business Quiz App</h2>
+        <p class="text-slate-600 mb-8 leading-relaxed">
+          An interactive knowledge-testing engine designed for professionals looking to sharpen their business and general expertise.
+        </p>
+        
+        <a href="https://app-business-quiz.streamlit.app/" 
+           target="_blank" 
+           class="flex items-center justify-center w-full bg-slate-900 hover:bg-black text-white font-bold py-4 rounded-xl transition-all active:scale-95 shadow-lg shadow-slate-200">
+          Start Quiz <i class="fas fa-play ml-2 text-xs"></i>
+        </a>
+      </div>
     </section>
 
   </main>
 
-  <footer class="max-w-4xl mx-auto mt-16 pt-8 border-t text-center text-slate-500 text-sm">
-    <p>Naveen Porwal | Electronic City, Bangalore</p>
-    <p class="mt-2">Email: naveenporwal3@hotmail.com</p>
+  <footer class="max-w-4xl mx-auto mt-20 pb-12 text-center">
+    <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mb-8 rounded-full"></div>
+    <div class="space-y-2">
+      <p class="font-bold text-slate-800">Naveen Porwal</p>
+      <p class="text-slate-500 text-sm flex items-center justify-center gap-4">
+        <span><i class="fas fa-map-marker-alt mr-1"></i> Bangalore, India</span>
+        <span><i class="fas fa-envelope mr-1"></i> naveenporwal3@hotmail.com</span>
+        <span><i class="fas fa-envelope mr-1"></i> 92-5093-3584</span>
+      </p>
+    </div>
   </footer>
 
 </body>
