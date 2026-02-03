@@ -44,15 +44,6 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .tag {
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 4px 10px;
-      border-radius: 6px;
-    }
-
     .nav-btn {
       transition: all 0.3s ease;
       border: 1px solid #e2e8f0;
@@ -68,77 +59,85 @@
 </head>
 <body class="p-6 md:p-10">
 
-  <header class="max-w-6xl mx-auto w-full flex flex-col md:flex-row justify-between items-center mb-12 border-b border-slate-200 pb-8">
+  <header class="max-w-6xl mx-auto w-full flex flex-col md:flex-row justify-between items-center mb-10 border-b border-slate-200 pb-6">
     <div class="text-center md:text-left">
-      <h1 class="text-4xl font-extrabold tracking-tight">Project <span class="gradient-text">Showcase</span></h1>
-      <p class="text-xs text-slate-500 font-bold uppercase tracking-[0.2em] mt-2">Live AI & Intelligent Applications</p>
+      <h1 class="text-3xl font-extrabold tracking-tight">Project <span class="gradient-text">Showcase</span></h1>
+      <p class="text-[10px] text-slate-500 font-bold uppercase tracking-[0.3em] mt-1">Live AI & Intelligent Applications</p>
     </div>
     
-    <div class="mt-6 md:mt-0">
-      <a href="index.html" class="nav-btn inline-flex items-center px-6 py-3 bg-white text-slate-700 rounded-2xl font-bold text-xs shadow-sm">
+    <div class="mt-4 md:mt-0">
+      <a href="index.html" class="nav-btn inline-flex items-center px-5 py-2.5 bg-white text-slate-700 rounded-xl font-bold text-xs shadow-sm">
         <i class="fas fa-arrow-left mr-2"></i> Back to Home
       </a>
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto w-full grid gap-10 md:grid-cols-2 items-stretch">
+  <main class="max-w-6xl mx-auto w-full grid gap-8 md:grid-cols-2 items-stretch">
 
-    <section class="glass-card p-10 rounded-[2.5rem]">
-      <div>
-        <div class="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mb-8 shadow-sm">
-          <i class="fas fa-robot text-2xl"></i>
+    <section class="glass-card p-8 rounded-[2.5rem] relative overflow-hidden group">
+      <div class="absolute -top-10 -right-10 w-32 h-32 bg-indigo-50 rounded-full blur-3xl group-hover:bg-indigo-100 transition-colors"></div>
+
+      <div class="relative z-10">
+        <div class="flex items-center justify-between mb-6">
+          <div class="w-14 h-14 bg-gradient-to-tr from-indigo-600 to-purple-600 text-white rounded-2xl flex items-center justify-center shadow-lg relative">
+            <i class="fas fa-robot text-2xl"></i>
+            <span class="absolute inset-0 rounded-2xl bg-indigo-500 animate-ping opacity-20"></span>
+          </div>
+          <span class="text-[9px] font-bold text-indigo-500 bg-indigo-50 px-3 py-1 rounded-full uppercase">Gemini 1.5 Pro</span>
         </div>
-        <h2 class="text-2xl font-bold text-slate-900 mb-4">Smart AI Document Assistant</h2>
+
+        <h2 class="text-2xl font-bold text-slate-900 mb-3">Smart AI Document Assistant</h2>
         <p class="text-slate-600 leading-relaxed mb-6 text-sm">
-          Harness the power of <strong>RAG (Retrieval-Augmented Generation)</strong> to chat with your PDFs. This Gemini-powered tool extracts deep insights and provides intelligent summaries in seconds.
+          Chat with your PDFs using advanced <strong>RAG technology</strong>. Extract deep insights, verify data, and generate summaries instantly.
         </p>
-        <div class="flex flex-wrap gap-2 mb-8">
-          <span class="tag bg-indigo-50 text-indigo-600">Python</span>
-          <span class="tag bg-indigo-50 text-indigo-600">Gemini AI</span>
-          <span class="tag bg-indigo-50 text-indigo-600">Streamlit</span>
-          <span class="tag bg-indigo-50 text-indigo-600">LangChain</span>
+
+        <div class="grid grid-cols-2 gap-3 mb-8">
+          <div class="flex items-center text-[10px] font-semibold text-slate-500"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> PDF Analysis</div>
+          <div class="flex items-center text-[10px] font-semibold text-slate-500"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Context Retrieval</div>
+          <div class="flex items-center text-[10px] font-semibold text-slate-500"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> GenAI Powered</div>
+          <div class="flex items-center text-[10px] font-semibold text-slate-500"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Fast Response</div>
         </div>
+
+        <a href="https://smart-document-assistant.streamlit.app/" 
+           target="_blank" 
+           class="group/btn relative flex items-center justify-center w-full bg-slate-900 overflow-hidden text-white font-bold py-4 rounded-xl transition-all hover:bg-indigo-600 shadow-lg active:scale-95">
+          <span class="relative z-10 flex items-center text-sm">Launch App <i class="fas fa-sparkles ml-2 text-yellow-400"></i></span>
+        </a>
       </div>
-      
-      <a href="https://smart-document-assistant.streamlit.app/" 
-         target="_blank" 
-         class="flex items-center justify-center w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-2xl transition-all active:scale-95 shadow-lg shadow-indigo-100">
-        Open Application <i class="fas fa-rocket ml-2 text-[10px]"></i>
-      </a>
     </section>
 
-    <section class="glass-card p-10 rounded-[2.5rem]">
+    <section class="glass-card p-8 rounded-[2.5rem]">
       <div>
-        <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-8 shadow-sm">
+        <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
           <i class="fas fa-graduation-cap text-2xl"></i>
         </div>
-        <h2 class="text-2xl font-bold text-slate-900 mb-4">GK & Business Quiz App</h2>
+        <h2 class="text-2xl font-bold text-slate-900 mb-3">GK & Business Quiz App</h2>
         <p class="text-slate-600 leading-relaxed mb-6 text-sm">
-          A dynamic platform built for professional growth. Engage with high-stakes business and general knowledge quizzes featuring real-time analytics and user performance tracking.
+          A gamified professional testing platform. Sharpen your skills with real-time analytics, competitive scoring, and industry-standard feedback.
         </p>
+        
         <div class="flex flex-wrap gap-2 mb-8">
-          <span class="tag bg-emerald-50 text-emerald-600">Python</span>
-          <span class="tag bg-emerald-50 text-emerald-600">Streamlit</span>
-          <span class="tag bg-emerald-50 text-emerald-600">SQLite</span>
-          <span class="tag bg-emerald-50 text-emerald-600">Pandas</span>
+          <span class="text-[9px] font-bold uppercase bg-emerald-50 text-emerald-600 px-2 py-1 rounded">Python</span>
+          <span class="text-[9px] font-bold uppercase bg-emerald-50 text-emerald-600 px-2 py-1 rounded">Streamlit</span>
+          <span class="text-[9px] font-bold uppercase bg-emerald-50 text-emerald-600 px-2 py-1 rounded">SQLite</span>
         </div>
       </div>
       
       <a href="https://app-business-quiz.streamlit.app/" 
          target="_blank" 
-         class="flex items-center justify-center w-full bg-slate-900 hover:bg-black text-white font-bold py-4 rounded-2xl transition-all active:scale-95 shadow-lg">
-        Start Training <i class="fas fa-play ml-2 text-[10px]"></i>
+         class="flex items-center justify-center w-full bg-slate-900 hover:bg-black text-white font-bold py-4 rounded-xl transition-all active:scale-95 shadow-lg">
+        <span class="text-sm">Start Training <i class="fas fa-play ml-2 text-[10px]"></i></span>
       </a>
     </section>
 
   </main>
 
-  <footer class="max-w-6xl mx-auto w-full mt-16 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em]">
-    <div class="flex gap-8 mb-4 md:mb-0">
+  <footer class="max-w-6xl mx-auto w-full mt-12 pt-6 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+    <div class="flex gap-6 mb-4 md:mb-0">
       <span class="flex items-center"><i class="fas fa-envelope mr-2 text-indigo-400"></i> naveenporwal3@hotmail.com</span>
       <span class="flex items-center"><i class="fas fa-phone mr-2 text-emerald-400"></i> +91 9250 933 584</span>
     </div>
-    <p>© 2026 Naveen Porwal • Data Analytics Portfolio</p>
+    <p>© 2026 Naveen Porwal • Data Analytics</p>
   </footer>
 
 </body>
