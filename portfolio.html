@@ -4,210 +4,129 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Naveen Porwal | Data Portfolio</title>
-  
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
   <style>
-    :root {
-      --primary: #0d9488;
-      --secondary: #4f46e5;
-    }
-    
     body {
-      background: linear-gradient(135deg, #f0fdfa 0%, #eef2ff 100%);
+      background: #f8fafc;
       font-family: 'Plus Jakarta Sans', sans-serif;
       color: #1e293b;
+      overflow-x: hidden;
     }
-
-    /* Soft Animated Background Blobs */
-    .blob {
-      position: fixed;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(13, 148, 136, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
-      z-index: -1;
-      border-radius: 50%;
-    }
-
     .glass-card {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
     }
-
     .glass-card:hover {
-      transform: translateY(-6px);
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+      border-color: #0d9488;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
-
-    .gradient-text {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    .gradient-header {
+      background: linear-gradient(135deg, #0d9488, #4f46e5);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
-    .btn-gradient {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      transition: all 0.3s ease;
-    }
-
-    .btn-gradient:hover {
-      opacity: 0.9;
-      transform: scale(1.02);
-    }
-
-    /* Custom scrollbar for a cleaner look */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #f1f1f1; }
-    ::-webkit-scrollbar-thumb { background: #0d9488; border-radius: 10px; }
+    /* Scrollbar for the PDF container */
+    .pdf-container::-webkit-scrollbar { width: 4px; }
+    .pdf-container::-webkit-scrollbar-thumb { background: #cbd5e0; border-radius: 10px; }
   </style>
 </head>
-<body class="min-h-screen py-10 px-4">
+<body class="p-4 md:p-6 lg:p-8">
 
-  <div class="blob top-[-100px] left-[-100px]"></div>
-  <div class="blob bottom-[-100px] right-[-100px]"></div>
-
-  <header class="max-w-4xl mx-auto text-center mb-12">
-    <div class="inline-block px-4 py-1 mb-4 text-xs font-bold tracking-widest text-teal-700 uppercase bg-teal-100 rounded-full">
-      Portfolio 2026
+  <header class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center mb-6 border-b pb-4">
+    <div class="text-center md:text-left">
+      <h1 class="text-2xl font-extrabold tracking-tight">Naveen <span class="gradient-header">Porwal</span></h1>
+      <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Data Analyst • 2026 Portfolio</p>
     </div>
-    <h1 class="text-4xl md:text-5xl font-extrabold mb-3 tracking-tight">
-      Naveen <span class="gradient-text">Porwal</span>
-    </h1>
-    <p class="text-lg text-slate-600 font-medium">Data Analyst • Visualization Expert • Python Developer</p>
-    <div class="flex justify-center gap-4 mt-6">
-       <div class="h-1 w-12 bg-teal-500 rounded-full"></div>
-       <div class="h-1 w-4 bg-indigo-500 rounded-full"></div>
+    <div class="flex gap-4 mt-4 md:mt-0">
+      <a href="mailto:naveenporwal3@hotmail.com" class="text-xs font-bold text-slate-600 hover:text-teal-600"><i class="fas fa-envelope mr-1"></i> Contact Me</a>
+      <a href="index.html" class="text-xs font-bold bg-slate-900 text-white px-4 py-2 rounded-full hover:bg-teal-600 transition">Showcase Home</a>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto space-y-8">
+  <main class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
     
-    <div class="glass-card p-6 rounded-3xl flex flex-col md:flex-row items-center gap-6">
-      <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 shrink-0">
-        <i class="fas fa-utensils text-2xl"></i>
-      </div>
-      <div class="flex-grow text-center md:text-left">
-        <h3 class="text-xl font-bold text-slate-800">Food Delivery Website Prototype</h3>
-        <p class="text-slate-500 mt-1">Responsive front-end design with modern UI/UX principles.</p>
-      </div>
-      <a href="https://naveenporwal3.github.io/Food/" target="_blank" class="btn-gradient text-white px-6 py-3 rounded-2xl font-bold shadow-lg shadow-teal-100">
-        Visit Site
-      </a>
-    </div>
-    
-    <div class="glass-card p-6 rounded-3xl flex flex-col md:flex-row items-center gap-6">
-      <div class="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center text-teal-600 shrink-0">
-        <i class="fas fa-chart-pie text-2xl"></i>
-      </div>
-      <div class="flex-grow text-center md:text-left">
-        <h3 class="text-xl font-bold text-slate-800">Tableau Dashboard</h3>
-        <p class="text-slate-500 mt-1">Comprehensive Superstore Sales analytics and forecasting.</p>
-      </div>
-      <a href="https://public.tableau.com/views/SuperstoreAssignment_17529924217280/StateSales?:language=en-US&:embed=true&:toolbar=yes&:display_count=yes" target="_blank" class="bg-slate-900 text-white px-6 py-3 rounded-2xl font-bold hover:bg-black transition shadow-lg">
-        View Dashboard
-      </a>
-    </div>
-
-    <div class="glass-card p-8 rounded-3xl">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600">
-          <i class="fas fa-file-invoice text-xl"></i>
+    <div class="lg:col-span-7 space-y-6">
+      <div class="glass-card p-4 rounded-2xl">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+            <i class="fas fa-file-invoice text-indigo-500"></i> Power BI Sales Analytics
+          </h2>
+          <span class="text-[10px] font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded">View-Only</span>
         </div>
-        <div>
-          <h3 class="text-xl font-bold text-slate-800">Power BI – Sales Analytics</h3>
-          <p class="text-sm text-slate-500 italic">Embedded Secure PDF Preview</p>
+        <div class="border rounded-xl overflow-hidden bg-white shadow-inner pdf-container" style="height: 520px;">
+          <object data="https://naveenporwal3.github.io/Demo_Report_by_Naveen.pdf#toolbar=0" type="application/pdf" width="100%" height="100%">
+            <iframe src="https://docs.google.com/viewer?url=https://naveenporwal3.github.io/Demo_Report_by_Naveen.pdf&embedded=true" width="100%" height="100%" style="border: none;"></iframe>
+          </object>
         </div>
       </div>
-
-      <div class="border-2 border-slate-100 rounded-2xl overflow-hidden shadow-inner bg-white">
-        <object data="https://naveenporwal3.github.io/Demo_Report_by_Naveen.pdf#toolbar=0" type="application/pdf" width="100%" height="550px">
-          <iframe src="https://docs.google.com/viewer?url=https://naveenporwal3.github.io/Demo_Report_by_Naveen.pdf&embedded=true" width="100%" height="550px" style="border: none;"></iframe>
-        </object>
-      </div>
-
-      <div class="flex gap-2 mt-4">
-        <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-[10px] font-bold uppercase rounded-lg">Power BI</span>
-        <span class="px-3 py-1 bg-amber-50 text-amber-700 text-[10px] font-bold uppercase rounded-lg">Protected View</span>
-      </div>
-    </div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="glass-card p-6 rounded-3xl">
-        <i class="fas fa-calculator text-lime-500 text-2xl mb-4"></i>
-        <h3 class="text-lg font-bold text-slate-800">Calculator App</h3>
-        <p class="text-sm text-slate-500 mb-4">Python & Streamlit utility for quick data calculations.</p>
-        <a href="https://calculator-app-g63camuddhytd6hq5paiej.streamlit.app/" target="_blank" class="inline-block text-lime-600 font-bold hover:underline">Launch App →</a>
-      </div>
-
-      <div class="glass-card p-6 rounded-3xl">
-        <i class="fas fa-broom text-yellow-500 text-2xl mb-4"></i>
-        <h3 class="text-lg font-bold text-slate-800">Excel Cleaner</h3>
-        <p class="text-sm text-slate-500 mb-4">Automated preprocessing tool for messy Excel datasets.</p>
-        <a href="https://excelcleaner.streamlit.app" target="_blank" class="inline-block text-yellow-600 font-bold hover:underline">Launch App →</a>
-      </div>
     </div>
 
-    <div class="glass-card p-8 rounded-3xl">
-      <h3 class="text-xl font-bold text-slate-800 mb-6 flex items-center gap-3">
-        <i class="fas fa-database text-purple-500"></i> Zoho Analytics Sales Overview
-      </h3>
-      <div class="rounded-2xl overflow-hidden border border-purple-100">
-        <iframe title="Zoho Sales" frameborder="0" height="350" src="https://analytics.zoho.in/open-view/469651000000005228"></iframe>
-      </div>
-    </div>
-
-    <div class="glass-card p-8 rounded-3xl border-2 border-teal-100">
-      <h3 class="text-xl font-bold text-slate-800 mb-2">Ask My AI Assistant</h3>
-      <p class="text-sm text-slate-500 mb-6">Inquire about my professional background and expertise.</p>
+    <div class="lg:col-span-5 space-y-6">
       
-      <div class="relative">
-        <input id="userInput" type="text" placeholder="e.g., What are your skills?" class="w-full pl-4 pr-24 py-4 bg-white border border-slate-200 rounded-2xl focus:outline-none focus:ring-4 focus:ring-teal-100 transition shadow-sm"/>
-        <button onclick="getAnswer()" class="absolute right-2 top-2 bottom-2 bg-teal-600 text-white px-6 rounded-xl font-bold hover:bg-teal-700 transition">Ask</button>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <a href="https://naveenporwal3.github.io/Food/" target="_blank" class="glass-card p-4 rounded-xl block group">
+          <i class="fas fa-hamburger text-orange-500 mb-2"></i>
+          <h3 class="text-xs font-bold group-hover:text-teal-600">Food Prototype</h3>
+          <p class="text-[10px] text-slate-500">Responsive Web Design</p>
+        </a>
+        <a href="https://public.tableau.com/views/SuperstoreAssignment_17529924217280/StateSales?:language=en-US&:embed=true" target="_blank" class="glass-card p-4 rounded-xl block group">
+          <i class="fas fa-chart-line text-teal-500 mb-2"></i>
+          <h3 class="text-xs font-bold group-hover:text-teal-600">Tableau Sales</h3>
+          <p class="text-[10px] text-slate-500">Superstore Dashboard</p>
+        </a>
+        <a href="https://calculator-app-g63camuddhytd6hq5paiej.streamlit.app/" target="_blank" class="glass-card p-4 rounded-xl block group">
+          <i class="fas fa-calculator text-blue-500 mb-2"></i>
+          <h3 class="text-xs font-bold group-hover:text-teal-600">Python Calc</h3>
+          <p class="text-[10px] text-slate-500">Streamlit Utility</p>
+        </a>
+        <a href="https://excelcleaner.streamlit.app" target="_blank" class="glass-card p-4 rounded-xl block group">
+          <i class="fas fa-broom text-yellow-500 mb-2"></i>
+          <h3 class="text-xs font-bold group-hover:text-teal-600">Excel Cleaner</h3>
+          <p class="text-[10px] text-slate-500">Data Preprocessing</p>
+        </a>
       </div>
-      <div id="botResponse" class="mt-4 p-4 bg-teal-50 rounded-xl text-teal-900 font-medium min-h-[50px] flex items-center">
-        Waiting for your question...
-      </div>
-    </div>
 
-    <div class="flex flex-col items-center gap-6 pt-8 pb-12">
-      <a href="index.html" class="flex items-center gap-3 px-8 py-3 bg-white text-slate-800 font-bold rounded-full shadow-lg hover:shadow-xl transition-all border border-slate-100">
-        <i class="fas fa-arrow-left text-teal-500"></i> Back to Main Showcase
-      </a>
-      <p class="text-slate-400 text-xs font-medium">© 2026 Naveen Porwal | Electronic City, Bangalore</p>
+      <div class="glass-card p-4 rounded-2xl">
+        <h3 class="text-xs font-bold text-slate-800 mb-3"><i class="fas fa-database text-purple-500 mr-1"></i> Zoho Dashboard</h3>
+        <div class="rounded-lg overflow-hidden border">
+          <iframe title="Zoho" height="180" src="https://analytics.zoho.in/open-view/469651000000005228" class="w-full"></iframe>
+        </div>
+      </div>
+
+      <div class="glass-card p-4 rounded-2xl bg-teal-50 border-teal-100">
+        <h3 class="text-xs font-bold text-teal-800 mb-2">AI Profile Assistant</h3>
+        <div class="flex gap-2">
+          <input id="userInput" type="text" placeholder="Ask about me..." class="flex-grow text-xs p-2 rounded-lg border focus:ring-2 focus:ring-teal-400 outline-none">
+          <button onclick="getAnswer()" class="bg-teal-600 text-white px-4 py-2 rounded-lg text-xs font-bold hover:bg-teal-700">Ask</button>
+        </div>
+        <p id="botResponse" class="mt-2 text-[11px] text-teal-900 font-medium leading-tight min-h-[30px]"></p>
+      </div>
+
     </div>
   </main>
 
+  <footer class="max-w-6xl mx-auto mt-6 text-center text-[10px] text-slate-400 font-medium uppercase tracking-widest">
+    © 2026 Naveen Porwal • Bangalore, India • Built with Tailwind CSS
+  </footer>
+
   <script>
     const qa = [
-      {keywords: ["who", "you"], answer: "I am Naveen Porwal, a data analyst expert in turning complex data into actionable insights using Python and Tableau."},
-      {keywords: ["skill", "skills", "tech"], answer: "My core stack includes Python, Tableau, Power BI, Zoho Analytics, and SQL for data engineering."},
-      {keywords: ["contact", "email", "reach"], answer: "Let's connect! Email me at naveenporwal3@hotmail.com or call +91 9250 933 584."},
-      {keywords: ["project", "work"], answer: "I specialize in interactive dashboards (Tableau/Zoho) and AI-driven automation tools using Streamlit."},
-      {keywords: ["food"], answer: "The Food Delivery project showcases my ability to build clean, responsive user interfaces."},
-      {keywords: ["help"], answer: "Ask me about my experience, specific projects, or the technologies I use!"}
+      {keywords: ["who", "you"], answer: "Naveen Porwal, a data analyst expert in Python, Tableau, and BI tools."},
+      {keywords: ["skill", "skills"], answer: "Python, SQL, Tableau, Power BI, and Zoho Analytics."},
+      {keywords: ["contact", "email"], answer: "Reach me at naveenporwal3@hotmail.com or +91 9250 933 584."},
+      {keywords: ["project"], answer: "I build interactive BI dashboards and AI automation tools."},
+      {keywords: ["help"], answer: "Ask about my skills, projects, or how to hire me!"}
     ];
 
     function getAnswer() {
       let input = document.getElementById("userInput").value.trim().toLowerCase();
       let responseBox = document.getElementById("botResponse");
-      
-      if (!input) {
-        responseBox.innerText = "Please type a question!";
-        return;
-      }
-      
+      if (!input) { responseBox.innerText = "Please type something!"; return; }
       const matched = qa.find(item => item.keywords.some(k => input.includes(k)));
-      responseBox.classList.add('animate-pulse');
-      
-      setTimeout(() => {
-        responseBox.classList.remove('animate-pulse');
-        responseBox.innerText = matched ? matched.answer : "I'm not sure about that. Try asking about my skills, projects, or contact info!";
-      }, 400);
+      responseBox.innerText = matched ? matched.answer : "I'm not sure. Try asking about my skills or contact info!";
     }
   </script>
 </body>
