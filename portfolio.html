@@ -22,7 +22,8 @@
     }
     .glass-card:hover {
       border-color: #6366f1;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px -10px rgba(0,0,0,0.1);
     }
     .gradient-header {
       background: linear-gradient(135deg, #0d9488, #4f46e5);
@@ -30,13 +31,16 @@
       -webkit-text-fill-color: transparent;
     }
     .viz-container {
-      height: 400px; /* Reduced height to fit everything on one page */
+      height: 420px;
       background: white;
       border-radius: 12px;
       overflow: hidden;
       border: 1px solid #f1f5f9;
     }
     iframe, object { width: 100%; height: 100%; border: none; }
+    
+    /* Smooth scroll for AI response */
+    #botResponse { transition: all 0.3s ease; }
   </style>
 </head>
 <body class="p-4 md:px-10 py-6">
@@ -44,37 +48,46 @@
   <header class="max-w-7xl mx-auto flex justify-between items-center mb-6 border-b pb-4">
     <div>
       <h1 class="text-2xl font-extrabold tracking-tight">Naveen <span class="gradient-header">Porwal</span></h1>
-      <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Data Analyst • 2026</p>
+      <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Data Analyst • Portfolio 2026</p>
     </div>
-    <a href="index.html" class="text-xs font-bold bg-slate-900 text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition">
-      <i class="fas fa-arrow-left mr-1"></i> Back
+    <a href="index.html" class="text-xs font-bold bg-slate-900 text-white px-5 py-2.5 rounded-xl hover:bg-indigo-600 transition shadow-md">
+      <i class="fas fa-arrow-left mr-2"></i> Showcase Home
     </a>
   </header>
 
-  <main class="max-w-7xl mx-auto space-y-6">
+  <main class="max-w-7xl mx-auto space-y-8">
 
-    <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      <div class="glass-card p-4 rounded-2xl">
-        <div class="flex justify-between items-center mb-3">
-          <h2 class="text-xs font-bold text-slate-800"><i class="fas fa-file-invoice text-indigo-500 mr-2"></i>Power BI Sales</h2>
-          <span class="text-[9px] bg-slate-100 px-2 py-1 rounded-full uppercase font-bold">PDF View</span>
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      
+      <div class="glass-card p-5 rounded-[2rem]">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+            <i class="fas fa-file-invoice text-indigo-500"></i> Power BI Sales Analytics
+          </h2>
+          <span class="text-[9px] font-bold bg-amber-100 text-amber-700 px-2 py-1 rounded-full uppercase">PDF Report</span>
         </div>
-        <div class="viz-container">
+        <div class="viz-container shadow-inner">
           <object data="https://naveenporwal3.github.io/Demo_Report_by_Naveen.pdf#toolbar=0" type="application/pdf">
             <iframe src="https://docs.google.com/viewer?url=https://naveenporwal3.github.io/Demo_Report_by_Naveen.pdf&embedded=true"></iframe>
           </object>
         </div>
       </div>
 
-      <div class="glass-card p-4 rounded-2xl">
-        <div class="flex justify-between items-center mb-3">
-          <div>
-            <h2 class="text-xs font-bold text-slate-800"><i class="fas fa-chart-area text-teal-600 mr-2"></i>Tableau Live</h2>
-            <a href="https://public.tableau.com/views/SuperstoreAssignment_17529924217280/StateSales?:embed=y" target="_blank" class="text-[9px] text-teal-600 font-bold hover:underline">View on Tableau Public <i class="fas fa-external-link-alt"></i></a>
+      <div class="glass-card p-5 rounded-[2rem]">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex flex-col">
+            <h2 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+              <i class="fas fa-chart-area text-teal-600"></i> Tableau Live Dashboard
+            </h2>
+            <a href="https://public.tableau.com/views/SuperstoreAssignment_17529924217280/StateSales?:language=en-US&:embed=true" 
+               target="_blank" 
+               class="text-[10px] text-teal-600 font-bold hover:text-teal-800 mt-1 flex items-center gap-1">
+              View on Tableau Public <i class="fas fa-external-link-alt text-[8px]"></i>
+            </a>
           </div>
-          <span class="text-[9px] bg-teal-50 text-teal-700 px-2 py-1 rounded-full uppercase font-bold">Interactive</span>
+          <span class="text-[9px] font-bold bg-teal-100 text-teal-700 px-2 py-1 rounded-full uppercase">Interactive</span>
         </div>
-        <div class="viz-container">
+        <div class="viz-container shadow-inner">
           <iframe src="https://public.tableau.com/views/SuperstoreAssignment_17529924217280/StateSales?:showVizHome=no&:embed=true"></iframe>
         </div>
       </div>
@@ -83,60 +96,93 @@
     <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
       <div class="glass-card p-4 rounded-xl border-t-4 border-t-blue-500">
         <h3 class="text-xs font-bold mb-1"><i class="fas fa-utensils mr-2 text-blue-500"></i>Food Prototype</h3>
-        <a href="https://naveenporwal3.github.io/Food/" target="_blank" class="text-[10px] text-blue-600 font-bold hover:underline">Visit Site →</a>
+        <p class="text-[10px] text-slate-500 mb-2">Responsive Web Design</p>
+        <a href="https://naveenporwal3.github.io/Food/" target="_blank" class="text-[10px] text-blue-600 font-bold hover:underline">Launch Site →</a>
       </div>
       <div class="glass-card p-4 rounded-xl border-t-4 border-t-yellow-500">
         <h3 class="text-xs font-bold mb-1"><i class="fas fa-broom mr-2 text-yellow-500"></i>Excel Cleaner</h3>
+        <p class="text-[10px] text-slate-500 mb-2">Python Data Preprocessing</p>
         <a href="https://excelcleaner.streamlit.app" target="_blank" class="text-[10px] text-yellow-600 font-bold hover:underline">Open App →</a>
       </div>
       <div class="glass-card p-4 rounded-xl border-t-4 border-t-lime-500">
-        <h3 class="text-xs font-bold mb-1"><i class="fas fa-calculator mr-2 text-lime-500"></i>Python Calc</h3>
+        <h3 class="text-xs font-bold mb-1"><i class="fas fa-calculator mr-2 text-lime-500"></i>Python Calculator</h3>
+        <p class="text-[10px] text-slate-500 mb-2">Streamlit Math Utility</p>
         <a href="https://calculator-app-g63camuddhytd6hq5paiej.streamlit.app/" target="_blank" class="text-[10px] text-lime-600 font-bold hover:underline">Open App →</a>
       </div>
     </section>
 
-    <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      <div class="glass-card p-5 rounded-2xl">
-        <h3 class="text-xs font-bold text-slate-800 mb-3"><i class="fas fa-database text-purple-500 mr-2"></i>Zoho Sales Dashboard</h3>
-        <div class="rounded-xl overflow-hidden border border-slate-100" style="height: 250px;">
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div class="glass-card p-6 rounded-[2rem]">
+        <h3 class="text-sm font-bold text-slate-800 mb-4 flex items-center gap-2">
+          <i class="fas fa-database text-purple-500"></i> Zoho Sales Dashboard
+        </h3>
+        <div class="rounded-xl overflow-hidden border border-slate-100 shadow-inner" style="height: 280px;">
           <iframe src="https://analytics.zoho.in/open-view/469651000000005228" height="100%"></iframe>
         </div>
       </div>
 
-      <div class="glass-card p-5 rounded-2xl bg-indigo-50 border-indigo-100">
-        <h3 class="text-xs font-bold text-indigo-900 mb-2">Ask My AI Assistant</h3>
-        <div class="flex gap-2 mb-3">
-          <input id="userInput" type="text" placeholder="Your question..." class="flex-grow p-2 rounded-lg border border-indigo-200 text-xs outline-none">
-          <button onclick="getAnswer()" class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-xs font-bold hover:bg-indigo-700">Ask</button>
+      <div class="glass-card p-8 rounded-[2rem] bg-indigo-50 border-indigo-100 flex flex-col justify-center">
+        <h3 class="text-lg font-bold text-indigo-900 mb-2">Ask My AI Assistant</h3>
+        <p class="text-xs text-indigo-600 mb-6 font-medium">Inquire about my background, skills, or projects.</p>
+        
+        <div class="flex gap-2 mb-4">
+          <input id="userInput" type="text" placeholder="e.g., What are your skills?" class="flex-grow p-3 rounded-xl border border-indigo-200 text-xs focus:ring-2 focus:ring-indigo-400 outline-none shadow-sm">
+          <button onclick="getAnswer()" class="bg-indigo-600 text-white px-6 py-3 rounded-xl text-xs font-bold hover:bg-indigo-700 transition shadow-md">Ask</button>
         </div>
-        <div id="botResponse" class="p-3 bg-white rounded-lg text-[11px] text-indigo-900 font-medium min-h-[60px] shadow-sm italic">
-          Response will appear here...
+        <div id="botResponse" class="p-4 bg-white rounded-xl text-xs text-indigo-900 font-medium min-h-[80px] shadow-sm border border-indigo-50 leading-relaxed italic">
+          Hello! Ask me anything about Naveen's professional profile.
         </div>
       </div>
     </section>
 
   </main>
 
-  <footer class="mt-8 text-center text-[10px] text-slate-400 font-bold uppercase tracking-widest border-t pt-4">
-    © 2026 Naveen Porwal • Bangalore, India
+  <footer class="mt-12 mb-8 text-center text-[10px] text-slate-400 font-bold uppercase tracking-[0.3em] border-t pt-8">
+    © 2026 Naveen Porwal • Data Analyst • Bangalore, India
   </footer>
 
   <script>
+    // Replace 'YOUR_LINKEDIN_URL' with your actual link
+    const linkedinURL = "https://www.linkedin.com/in/naveen-porwal-a73420235"; 
+
     const qa = [
-      {keywords: ["who", "you"], answer: "I'm Naveen Porwal, a data analyst expert in Power BI, Tableau, and Python."},
-      {keywords: ["skill", "skills"], answer: "My expertise includes Python, Tableau, SQL, Power BI, and Zoho Analytics."},
-      {keywords: ["contact", "email"], answer: "Reach me at naveenporwal3@hotmail.com or +91 9250 933 584."},
-      {keywords: ["project"], answer: "I build interactive BI dashboards and automated data pipelines."},
-      {keywords: ["help"], answer: "Ask about my experience, projects, or technical skills!"}
+      {keywords: ["who", "you", "name", "identity"], answer: "I'm Naveen Porwal, a Data Analyst expert in Power BI, Tableau, and Python automation based in Electronic City, Bangalore."},
+      {keywords: ["skill", "skills", "tech", "stack", "know", "tools"], answer: "My technical stack includes Python (Pandas, NumPy, Streamlit), Tableau, SQL, Power BI, and Zoho Analytics."},
+      {keywords: ["contact", "email", "reach", "phone", "mobile", "call"], answer: "You can reach me at <b>naveenporwal3@hotmail.com</b> or call <b>+91 9250 933 584</b>."},
+      {keywords: ["linkedin", "social", "profile", "connect"], answer: `Let's connect! You can find my full professional profile on LinkedIn here: <a href="${linkedinURL}" target="_blank" class="text-blue-600 underline font-bold">Visit LinkedIn</a>`},
+      {keywords: ["project", "work", "portfolio", "apps"], answer: "I build end-to-end data pipelines, interactive BI dashboards, and AI-powered tools using Streamlit and Gemini AI."},
+      {keywords: ["location", "live", "where", "place", "bangalore"], answer: "I am based in Electronic City, Bangalore, India."},
+      {keywords: ["hire", "job", "opportunity", "work with", "freelance", "available"], answer: `I am open to new opportunities! Reach out via email or connect with me on <a href="${linkedinURL}" target="_blank" class="text-blue-600 underline font-bold">LinkedIn</a>.`},
+      {keywords: ["education", "degree", "study", "background"], answer: "I have a strong background in Business Intelligence and Data Analytics with a focus on modern data storytelling."}
     ];
 
+    const myCVSummary = `Naveen Porwal is a professional Data Analyst specializing in Python, Tableau, and Power BI. He is based in Bangalore and focuses on building automated data solutions. You can view his full career history on <a href="${linkedinURL}" target="_blank" class="text-blue-600 underline font-bold">LinkedIn</a>.`;
+
     function getAnswer() {
-      let input = document.getElementById("userInput").value.trim().toLowerCase();
-      let responseBox = document.getElementById("botResponse");
-      if (!input) { responseBox.innerText = "Please type a question!"; return; }
+      const inputField = document.getElementById("userInput");
+      const input = inputField.value.trim().toLowerCase();
+      const responseBox = document.getElementById("botResponse");
+      
+      if (!input) {
+        responseBox.innerHTML = "Please type a question to learn more about my profile!";
+        return;
+      }
+      
       const matched = qa.find(item => item.keywords.some(k => input.includes(k)));
-      responseBox.innerText = matched ? matched.answer : "I'm not sure. Try asking about my skills or contact info!";
+      
+      if (matched) {
+        responseBox.innerHTML = matched.answer;
+      } else {
+        responseBox.innerHTML = "I don't have a specific answer for that, but here is a quick overview: " + myCVSummary;
+      }
     }
+
+    // Allow Enter Key support
+    document.getElementById("userInput").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        getAnswer();
+      }
+    });
   </script>
 </body>
 </html>
